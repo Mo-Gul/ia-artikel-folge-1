@@ -1,0 +1,79 @@
+:source-highlighter: coderay
+:imagesdir: images
+
+== Docs-As-Code - Die Grundlagen
+
+Das ungeliebten Thema _Dokumentation_ können Sie mit Hilfe robuster
+Open-Source Werkzeugen einfach und effektiv in die Softwareentwicklung
+integrieren.
+
+Damit decken Sie sowohl Entwicklungs- und Architekturdokumentation ab,
+aber auch User- und Betriebsdokumentation. Entwicklungsteams können Code-nah
+mit Hilfe von Plaintext arbeiten, Dokumente modular aufteilen und ihre Doku
+in den Build-Prozess ihrer Software integrieren. Sollten Sie in Ihrem Team
+bereits mit https://arc42.org[arc42] arbeiten,
+so werden Sie sich mit Docs-As-Code besonders wohl fühlen.
+
+Andere Beteiligte ("Stakeholder") dürfen ihre favorisierten Tools wie Word,
+Powerpoint, Excel oder auch Enterprise-Architect(tm) weiter verwenden -
+
+Falls das für Sie attraktiv klingt - dann lesen Sie weiter. Diese breite Palette
+an _Features_ bringen wir Ihnen in drei kleinen Portionen näher:
+
+1. Grundlagen: In der vorliegenden Folge zeigen wir Ihnen AsciiDoc als
+unsere favorisierte Grundlage für technische Dokumentation. Sie erfahren allerhand
+über Gliederung, Formatierung, Modularisierung, Integration von Diagrammen
+und Quellcode.
+2. In der zweiten Folgen lernen Sie docToolchain kennen, die OpenSource Lösung
+für Docs-As-Code. Sie lernen die
+ Integration von Office-Dokumenten, Confluence(tm) und Enterprise-Architect(tm)
+ in ihre Dokumentation kennen.
+3. In der dritten Folge bringen wir _alles unter einem Dach_ unter: Sie erfahren,
+wie Sie die verschiedenen Arten von Dokumentation (etwa Architektur- und Entwicklungsdokumentation sowie User-Manuals, Tutorials
+ etc) im Rahmen einer integrativen Website zusammenführen können.
+
+Sämtlichen Quellcode und Beispiele aller drei Teile finden Sie online
+in einem öffentlichen (git-) Repository.
+
+Um Ihnen das manchmal ungeliebte Thema _Dokumentation_ etwas schmackhaft zu machen,
+möchten wir Ihnen einen Ausblick auf das mögliche Endergebnis geben: Eine Website
+(siehe Abbildung 1), auf der Sie drei verschiedene Typen von Dokumentation
+unter einem (homogenen) Dach vereinigt finden:
+
+== So sieht's aus
+In Abbildung 1 sehen Sie eine (generierte) Website, auf der wir die gesamte
+Dokumentation für ein Softwaresystem zusammengeführt haben.
+
+== Was ist das Problem?
+
+== Anforderungen an (technische) Dokumentation
+
+== Dokumentation als "plain text"
+
+== Diagramme und Bilder
+
+== Tabellen
+
+== Links und Verweise
+
+== Modulare Dokumentation
+
+Sie möchten im Team an Dokumentation arbeiten
+Durch `include`-Anweisungen modularisieren wir die Dokumentation:
+
+include::kapitel/kapitel-1.adoc[leveloffset=+1]
+
+== Fazit
+
+
+
+=== Überschriften
+Textformatierungen, Aufzählungen (Listen)
+
+* kennen Sie von Wikis oder Markdown:
+* Formate wie *fett*, _kursiv_
+* Auch Links sind einfach: http://javamagazin.de[JavaMagazin].
+
+.Code-Highlighting
+[source,groovy]
+10.times { println "Hello, AsciiDoc!" }
