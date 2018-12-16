@@ -44,6 +44,10 @@ unter einem (homogenen) Dach vereinigt finden:
 In Abbildung 1 sehen Sie eine (generierte) Website, auf der wir die gesamte
 Dokumentation für ein Softwaresystem zusammengeführt haben.
 
+:figure-caption: Abbildung
+.1: Eine Doku-Website
+image::hsc-aim42-site-screenshot.png[]
+
 == Was ist das Problem?
 
 == Anforderungen an (technische) Dokumentation
@@ -59,9 +63,15 @@ Dokumentation für ein Softwaresystem zusammengeführt haben.
 == Modulare Dokumentation
 
 Sie möchten im Team an Dokumentation arbeiten
-Durch `include`-Anweisungen modularisieren wir die Dokumentation:
+Durch `include`-Anweisungen modularisieren wir die Dokumentation,
+d.h. wir können sie in kleine Teile zerlegen, im Team getrennt bearbeiten
+und bei Bedarf an beliebigen Stellen wieder einfügen.
 
-include::kapitel/kapitel-1.adoc[leveloffset=+1]
+Schematisch sehen Sie das in Abbildung XX.
+
+----
+include::hello.adoc[]
+----
 
 == Fazit
 
