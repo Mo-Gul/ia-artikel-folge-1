@@ -45,8 +45,17 @@ In Abbildung 1 sehen Sie eine (generierte) Website, auf der wir die gesamte
 Dokumentation für ein Softwaresystem zusammengeführt haben.
 
 :figure-caption: Abbildung
-.1: Eine Doku-Website
+.Eine Doku-Website
 image::hsc-aim42-site-screenshot.png[]
+
+In der Navigationsleiste dieser Site finden Sie drei typische Arten von
+Dokumentation, nämlich "User-Guide" (Benutzungsanleitung oä), "Development Guide"
+(detaillierte Informationen für das Entwicklungsteam) sowie die Architekturdokumentation,
+beispielsweise auf Basis des https://arc42.org[arc42 Templates].
+
+Probieren Sie das Original unter https://hsc.aim42.org ruhig aus. Die gesamte
+Site wird generiert, sämtliche Quellen liegen unter Versionsverwaltung und
+sind im Github-Reository öffentlich.
 
 == Was ist das Problem?
 
