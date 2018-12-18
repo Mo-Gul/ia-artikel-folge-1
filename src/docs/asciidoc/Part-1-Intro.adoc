@@ -58,6 +58,9 @@ Site wird generiert, sämtliche Quellen liegen unter Versionsverwaltung und
 sind im Github-Reository öffentlich.
 
 == Was ist das Problem?
+Den größten Teil technischer Dokumentation schreiben Entwicklungsteams,
+und die mögen ihre Entwicklungsumgebungen viel lieber als die üblichen Office-Tools
+wie Word oder Excel.
 
 == Anforderungen an (technische) Dokumentation
 
