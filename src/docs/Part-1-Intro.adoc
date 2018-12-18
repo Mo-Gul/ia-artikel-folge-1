@@ -6,8 +6,14 @@
 
 == Docs-As-Code - Die Grundlagen
 
-Das ungeliebten Thema _Dokumentation_ können Sie mit Hilfe robuster
-Open-Source Werkzeugen einfach und effektiv in die Softwareentwicklung integrieren.
+In einer gross angelegten Umfrage über Open Source wurde auf die Frage, welches die größten Probleme sind, wurde als Hauptproblem unvollständige oder verwirrende Dokumentation genanntfootnote:[https://opensourcesurvey.org/2017/].
+Dies trifft natürlich nicht nur auf Open Source Projekte zu, sondern im allgemeinen ist undokumentierte Software nicht nur schwer zu verwenden, sondern auch teurer im Support und der Wartung.
+
+Die Gründe für unzureichende Dokumentation sind vielfältig.
+Ein Grund ist aber mit Sicherheit das Erstellen der Dokumentation an sich.
+Und wenn die Dokumentation erstellt ist, muss sie mit der Software gewartet und aktualisiert werden.
+
+Wir zeigen Ihnen, wie Sie das ungeliebten Thema _Dokumentation_ mit Hilfe robuster Open-Source Werkzeuge einfach und effektiv in die Softwareentwicklung integrieren.
 
 Damit decken Sie sowohl Entwicklungs- und Architekturdokumentation ab,
 aber auch User- und Betriebsdokumentation. Entwicklungsteams können Code-nah
