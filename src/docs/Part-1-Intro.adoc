@@ -2,11 +2,10 @@
 :imagesdir: images
 :figure-caption: Abbildung
 :xrefstyle: short
-:screenshot-dir-name: images
 
 == Docs-As-Code - Die Grundlagen
 
-In einer gross angelegten Umfrage über Open Source wurde auf die Frage, welches die größten Probleme sind, wurde als Hauptproblem unvollständige oder verwirrende Dokumentation genanntfootnote:[https://opensourcesurvey.org/2017/].
+In einer grossangelegten Umfrage über Open Source wurde auf die Frage, welches die größten Probleme sind, wurde als Hauptproblem unvollständige oder verwirrende Dokumentation genanntfootnote:[https://opensourcesurvey.org/2017/].
 Dies trifft natürlich nicht nur auf Open Source Projekte zu, sondern im allgemeinen ist undokumentierte Software nicht nur schwer zu verwenden, sondern auch teurer im Support und der Wartung.
 
 Die Gründe für unzureichende Dokumentation sind vielfältig.
@@ -50,8 +49,8 @@ Dokumentation für ein Softwaresystem zusammengeführt haben.
 image::hsc-aim42-site-screenshot.png[]
 
 //TODO: insert live screenshot https://github.com/asciidoctor/asciidoctorj-screenshot
-
- screenshot::https://hsc.aim42.org[htmlSanityChecker, frame=BROWSER]
+//note: läuft nicht. Macht wahrscheinlich auch als Test mehr Sinn
+// screenshot::https://hsc.aim42.org[htmlSanityChecker, frame=BROWSER]
 
 
 In der Navigationsleiste dieser Site finden Sie drei typische Arten von
@@ -65,12 +64,27 @@ sind im Github-Reository öffentlich.
 
 == Was ist das Problem?
 Den größten Teil technischer Dokumentation schreiben Entwicklungsteams,
-und die mögen ihre Entwicklungsumgebungen viel lieber als die üblichen Office-Tools
-wie Word oder Excel.
+und die mögen ihre Entwicklungsumgebungen viel lieber als die üblichen Office-Tools wie Word oder Excel.
+Zur pflege klassischer Dokumentation muss ein Entwickler aus seiner IDE in den Kontext der Textverarbeitung wechseln.
+Das kostet Überwindung.
+Programmbeispiele werden aus der Quelle kopiert und sind somit schon veraltet.
+
+Warum nicht die gleichen Tools für die Dokumentation verwenden, die auch für die Erstellung und Verwaltung von Sourcecode verwendet werden?
 
 == Anforderungen an (technische) Dokumentation
 
+Der wahrscheinlich größre Teil technischer Dokumentation besteht aus Fliesstext und Codebeispielen mit dem Ergebnis der Ausführung - Text und Screenshots.
+Allerdings stellen unterschiedliche Dokumentationsarten auch unterschiedliche Anforderungen and wie zur Erstellung benötigten Werkzeuge.
+
+Ein Blick auf das arc42-Template footnote:[https://arc42.org] zur Dokumentation der Architektur vons Softwaresystemen zeigt, dass bei Architekutrdokumentation auch tabellarische Übersichten und viele Diagramme benötigt werden.
+
 == Dokumentation als "plain text"
+
+Das Markup-Format Asciidoc footnote:[https://de.wikipedia.org/wiki/AsciiDoc] zusammen mit dem Konverter Asciidoctor footnote:[https://asciidoctor.org/] hat sich zur Erstellung technischer Dokumentation mit den genannten Anforderungen nicht nur bewährt, sondern auch klar von anderen Formaten wie MarkDown abgehoben:
+
+* Es handelt sich um einen wirklichen Standard - keine Dialekte
+* Es ist sehr mächtig und erfüllt smit alle Wünsche
+* Es unterstützt Tabellen, Modularisierung verschiedene Ausgabeformate und vieles mehr.
 
 == Diagramme und Bilder
 
