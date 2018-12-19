@@ -1,6 +1,7 @@
 :source-highlighter: coderay
 :imagesdir: images
 :figure-caption: Abbildung
+:table-caption: Tabelle
 :xrefstyle: short
 
 == Docs-As-Code - Die Grundlagen
@@ -86,13 +87,115 @@ Das Markup-Format Asciidoc footnote:[https://de.wikipedia.org/wiki/AsciiDoc] zus
 * Es ist sehr mächtig und erfüllt smit alle Wünsche
 * Es unterstützt Tabellen, Modularisierung verschiedene Ausgabeformate und vieles mehr.
 
-== Diagramme und Bilder
+AsciiDoc ist so mächtig, dass ein Ausdruck der Benutzerdokumentation 274 Seiten füllen würde.
+Wir zeigen Ihnen hier die wichtigsten Features, damit Sie schnell loslegen können.
 
-== Tabellen
+=== Überschriften
 
-== Links und Verweise
+Überschriften werden einfach mit vorangestellten `=` definiert, wobei die Überschrifteneben der Anzahl der `=`-Zeichen entspricht.
+Ein einzelnes `=` ist dem Buchtitel vorbehalten, so dass ein normaler Text mit `==`als erste Überschriftenebene beginnt.
 
-== Modulare Dokumentation
+.Überschriften
+[options="noheader",cols="l,a"]
+|====
+|
+== Überschrift Ebene 1
+|
+== Überschrift Ebene 1
+
+|
+=== Überschrift Ebene 2
+|
+=== Überschrift Ebene 2
+
+|====
+
+=== Absätze
+
+AsciiDoc ignoriert einfache Zeilenumbrüche und erkennt erst nach einer Leerzeile einen Absatz.
+Dieser Mechanismus hilft beim strukturieren von Texten.
+Möchten Sie dennoch gezielt einen Zeilenumbruch setzen, so beenden Sie die Zeile mit einem Leerzeichen und `+`
+
+.Absätze
+[options="noheader",cols="l,a"]
+|====
+|
+Zeile 1
+Zeile 2
+Zeile 3
+|
+Zeile 1
+Zeile 2
+Zeile 3
+
+|
+neuer Absatz mit +
+erzwungenem Umbruch
+|
+neuer Absatz mit +
+erzwungenem Umbruch
+|====
+
+=== Links und Verweise
+
+Eine URL wird von Asciidoctor als solche erkannt und entsprechend verlinkt.
+Möchten Sie die URL im Text durch einen Text ersetzen, so hängen Sie diesen in eckigen Klammern einfach dran. fertig.
+
+Realtive Verweise zwischen mehreren Dokumenten wie z.B. `docs/tutorial.html` kann Asciidoctor aufgrund des fehlenden Protokolls nicht automatisch erkennen.
+Setzen Sie einfach ein `link:` davor und leere Klammern `[]`dahinter und alles ist wie gehabt.
+
+[[tabelle-links]]
+.Links
+[options="noheader",cols="l,a"]
+|===
+| https://docs-as-co.de
+| https://docs-as-co.de
+
+| https://docs-as-co.de[Docs-as-Co.de]
+| https://docs-as-co.de[Docs-as-Co.de]
+
+| link:docs/tutorial.html[]
+| link:docs/tutorial.html[]
+
+| link:docs/tutorial.html[Tutorial]
+| link:docs/tutorial.html[Tutorial]
+
+|===
+
+AsciiDoctor unterstützt auch Querverweise innerhalb des Dokuments.
+Mit doppelten eckigen Klammern `\[[ein-anker]]` setzen Sie Anker im Dokument gesetzt, auf die Sie mit spitzen Klammern `\<<ein-anker>>` verweisen.
+
+Wie Asciidoctor die Referenz benennt steuern Sie über das Attribut `:xrefstyle:`.
+
+.Verweise
+[options="noheader",cols="l,a"]
+|===
+|
+:xrefstyle: short
+<<tabelle-links>>
+|
+link:.[Tabelle 3]
+
+|
+:xrefstyle: fuöö
+<<tabelle-links>>
+|
+link:.[Tabelle 3, "Links"]
+
+|
+:xrefstyle: basic
+<<tabelle-links>>
+|
+link:.[Links]
+
+|===
+
+=== Bilder und Diagramme
+
+
+=== Tabellen
+
+=== Modulare Dokumentation
 
 Sie möchten im Team an Dokumentation arbeiten
 Durch `include`-Anweisungen modularisieren wir die Dokumentation,
