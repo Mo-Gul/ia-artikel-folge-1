@@ -179,7 +179,7 @@ Wie Asciidoctor die Referenz benennt steuern Sie über das Attribut `:xrefstyle:
 link:.[Tabelle 3]
 
 |
-:xrefstyle: fuöö
+:xrefstyle: full
 <<tabelle-links>>
 |
 link:.[Tabelle 3, "Links"]
