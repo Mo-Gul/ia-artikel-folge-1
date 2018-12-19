@@ -4,6 +4,8 @@
 :table-caption: Tabelle
 :xrefstyle: short
 
+// https://jaxenter.de/asciidoc-features-66027
+
 == Docs-As-Code - Die Grundlagen
 
 In einer grossangelegten Umfrage über Open Source wurde auf die Frage, welches die größten Probleme sind, wurde als Hauptproblem unvollständige oder verwirrende Dokumentation genanntfootnote:[https://opensourcesurvey.org/2017/].
@@ -190,8 +192,44 @@ link:.[Links]
 
 |===
 
+Asciidoctor setzt übrigens viele Anker als Sprungziele für Überschriften, Tabellen und Bilder automatisch.
+Das vereinfacht die Arbeit noch weiter.
+
 === Bilder und Diagramme
 
+Apropos Bilder. Für Links haben Sie schon die Makro-Syntax von Asciidoc kennen gelehrnt. `\link:seite.html[text]` oder allgemeiner `makro:ziel[optionen]`.
+Diese Syntax begenet Ihnen imemr wieder, so daß es sich lohnt sie zu verinnerlichen.
+So auch z.B. beim referenzieren von Bildern:
+
+.Bilder
+[options="noheader",cols="l,a"]
+|===
+| image:hhgdac-logo.png[]
+| image:hhgdac-logo.png[]
+
+|===
+
+Der Doppelpunkt `:` zwischen dem Makro-Namen und dem Ziel bestimmt übrigens, ob es sich um ein Inline- `:` oder Block- `::` Makro handelt.
+So können Sie steurn, ob das Bild innerhalb eines Textes (inline) oder alleinstehend als Absatz (block) dargestellt wird.
+
+.Bilder
+[options="noheader",cols="l,a"]
+|===
+| Docs-as-Code image:hhgdac-logo.png[] macht Spass!
+| Docs-as-Code image:hhgdac-logo.png[width=20%] macht Spass!
+
+| Docs-as-Code
+
+image::hhgdac-logo.png[]
+
+macht Spass!
+| Docs-as-Code
+
+image::hhgdac-logo.png[width=20%]
+
+macht Spass!
+
+|===
 
 === Tabellen
 
