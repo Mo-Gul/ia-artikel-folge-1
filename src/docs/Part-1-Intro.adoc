@@ -2,7 +2,9 @@
 :imagesdir: images
 :figure-caption: Abbildung
 :table-caption: Tabelle
+:example-caption: Beispiel
 :xrefstyle: short
+:sectanchors:
 
 // https://jaxenter.de/asciidoc-features-66027
 
@@ -57,7 +59,7 @@ image::hsc-aim42-site-screenshot.png[]
 
 
 In der Navigationsleiste dieser Site finden Sie drei typische Arten von
-Dokumentation, nämlich "User-Guide" (Benutzungsanleitung oä), "Development Guide"
+Dokumentation, nämlich "User-Guide" (Benutzungsanleitung o.ä.), "Development Guide"
 (detaillierte Informationen für das Entwicklungsteam) sowie die Architekturdokumentation,
 beispielsweise auf Basis des https://arc42.org[arc42 Templates].
 
@@ -95,7 +97,7 @@ Wir zeigen Ihnen hier die wichtigsten Features, damit Sie schnell loslegen könn
 === Überschriften
 
 Überschriften werden einfach mit vorangestellten `=` definiert, wobei die Überschrifteneben der Anzahl der `=`-Zeichen entspricht.
-Ein einzelnes `=` ist dem Buchtitel vorbehalten, so dass ein normaler Text mit `==`als erste Überschriftenebene beginnt.
+Ein einzelnes `=` ist dem Buchtitel vorbehalten, so dass ein normaler Text mit `==` als erste Überschriftenebene beginnt.
 
 .Überschriften
 [options="noheader",cols="l,a"]
@@ -231,7 +233,83 @@ macht Spass!
 
 |===
 
+Bilder sind mächtig, denn Sie können viel mit ihnen darstellen.
+Sie sind aber immer nur die Darstellung der Daten einer Quelle.
+Binden Sie nur die Bilder in Ihre Dokumentation ein, so geht automatisch der enge Bezug zur Quelle verloren.
+
+Für UML-Diagramme gibt es da eine trickreiche Lösung.
+Beschreiben Sie Ihr Diagramm doch einfach textuell und überlassen es Asciidoctor das Diagramm in ein Bild zu wandeln.
+Das Tool, welches Asciidoctor hierfür verwendet heisst PlantUML.
+
+[[plantuml]]
+.PlantUML
+[options="noheader",cols="l,a"]
+|===
+
+|
+[plantuml, "sequence", png]
+....
+actor Benutzer
+Benutzer -> Browser
+    Browser -> Server
+    Browser <-- Server
+Benutzer <-- Browser
+....
+
+|
+[plantuml, "sequence", png]
+....
+actor Benutzer
+Benutzer -> Browser
+    Browser -> Server
+    Browser <-- Server
+Benutzer <-- Browser
+....
+|===
+
+=== Blöcke
+
+Das Beispiel in <<plantuml>> zeigt nicht nur die Beschreibung eines Diagramms als versionierbaren Text sondern auch die Block-Syntax von AsciiDoc.
+
+Blöcke vreschiedener Arten (z.B. Sidebar oder Zitat) werden mit mindestens vier gleichen Zeichen wie z.B. `.`, `-` oder `=` eingeleitet und mit genauso vielen Zeichen des gleichen Typs wieder beendet.
+Stellen Sie dem Block (oder einem referenzierten Bild) eine Zeile voran, die Sie mit einem Punkt `.` einleiten und Sie erhalten eine Beschriftung.
+
+.Passthrough
+++++
+Passthrough -
+++++
+
+.Literal
+....
+test <b>dfg</b>
+....
+
+.Sidebar
+****
+test <b>dfg</b>
+****
+
+.After landing the cloaked Klingon bird of prey in Golden Gate park:
+[quote, Captain James T. Kirk, Star Trek IV: The Voyage Home]
+____
+Everybody remember where we parked.
+____
+
+.test
+====
+test <b>dfg</b>
+====
+
+.Listing
+----
+test <b>dfg</b>
+----
+
 === Tabellen
+
+Keine Regel ohne Ausnahme:
+Tabellen sind Blöcke, die mit `|===` eingeleitet werden.
+
 
 === Modulare Dokumentation
 
