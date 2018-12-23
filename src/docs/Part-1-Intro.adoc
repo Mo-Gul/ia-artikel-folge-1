@@ -6,29 +6,77 @@
 :xrefstyle: short
 :sectanchors:
 
-// https://jaxenter.de/asciidoc-features-66027
 
 == Docs-As-Code - Die Grundlagen
 
-In einer grossangelegten Umfrage über Open Source wurde auf die Frage, welches die größten Probleme sind, wurde als Hauptproblem unvollständige oder verwirrende Dokumentation genanntfootnote:[https://opensourcesurvey.org/2017/].
-Dies trifft natürlich nicht nur auf Open Source Projekte zu, sondern im allgemeinen ist undokumentierte Software nicht nur schwer zu verwenden, sondern auch teurer im Support und der Wartung.
+=== Schlechte Dokumentation  kostet Geld
 
-Die Gründe für unzureichende Dokumentation sind vielfältig.
-Ein Grund ist aber mit Sicherheit das Erstellen der Dokumentation an sich.
-Und wenn die Dokumentation erstellt ist, muss sie mit der Software gewartet und aktualisiert werden.
+Eine grossangelegte Umfragefootnote:[https://opensourcesurvey.org/2017/]
+zu "Open Source" zeigt, dass unvollständige oder verwirrende Dokumentation
+zu den Hauptproblem freier Software zählt. Das gilt neben Anwendungungsdokumentation
+insbesondere auch für technische Dokumentation, etwa von Softwarearchitektur.
 
-Wir zeigen Ihnen, wie Sie das ungeliebten Thema _Dokumentation_ mit Hilfe robuster Open-Source Werkzeuge einfach und effektiv in die Softwareentwicklung integrieren.
+Diese Aussage können wir sicherlich
+verallgemeinern -  schlechte Dokumentation von Software erschwert
+Änderung, Support und letztlich auch Nutzung.
 
-Damit decken Sie sowohl Entwicklungs- und Architekturdokumentation ab,
-aber auch User- und Betriebsdokumentation. Entwicklungsteams können Code-nah
-mit Hilfe von Plaintext arbeiten, Dokumente modular aufteilen und ihre Doku in den Build-Prozess ihrer Software integrieren. Sollten Sie in Ihrem Team bereits mit https://arc42.org[arc42] arbeiten,
+Wir möchten hier auf _technische Dokumentation_ von Software abzielen, also
+beispielsweise Entwicklungs-, Architektur- und Betriebsdokumentation. Das Thema
+_Anwendungsdokumentation_ klammern wir bewusst aus.
+
+Unserer Erfahrung nach behindern eine ganze Reihe von Faktoren
+die Erstellung und kontinuierliche Pflege technischer Dokumentation:
+
+1. Ungeeignete Werkzeuge, die ursprünglich nicht für Erstellung und Pflege
+solcher Dokumentation gedacht waren.
+2. Geringe Motivation seitens Entwicklungsteams, oftmals verstärkt durch die
+oben genannten Defizite der entsprechenden Werkzeuge.
+3. Unklare Vorstellung über Struktur, Form und Inhalt von Dokumentation:
+Entwicklungsteams haben keine klare Vorstellung davon, was und wie sie
+dokumentieren sollen.
+4. Schlechte Vorlagen ("Templates") für Dokumentation.
+
+=== Technische Dokumentation als "Leichtgewicht"
+Stellen Sie sich vor, Sie erstellen und pflegen Ihre technische Dokumentation
+genau so wie auch Ihren Quellcode: Im selben Texteditor oder einer IDE,
+als reiner Text, versioniert in Ihrem Lieblings-Repository (wir mögen Git).
+Dann verschwindet für Entwicklungsteams das erste der oben genannten Probleme (nämlich
+  die ungeeigneten Werkzeuge), und die Motivation zur Erstellung und Pflege von Doku
+  wird auch gleich besser.
+
+Wir zeigen Ihnen genau diesen Ansatz: Integrieren Sie das bisher ungeliebten
+Thema _Dokumentation_ mit Hilfe robuster Open-Source Werkzeuge einfach und effektiv
+in Ihre Softwareentwicklung, mit Hilfe Ihres favorisierten Texteditors.
+_Mergen_ und _branchen_ Sie Dokumentation genau wie Quellcode. Statt binäre Dokumente
+per Email zu versenden und Versionsnummern und Namenskürzel an die Dateinamen zu hängen,
+checken Sie Ihre Dokumentation per commit und push ein, mit derselben Branching-Strategie
+mit der Sie auch Ihre Software entwickeln.
+
+Damit können Sie ein breites Spektrum technischer Dokumentation von Software abdecken,
+beispielsweise Entwicklungs-, Architektur- oder auch Betriebsdokumentation.  Wir persönlich
+haben auch User- auf diese Weise erstellt.
+
+Für diesen Ansatz hat sich im Netz der Begriff _Docs-as-Code_ etabliert -
+Dokumentation genauso wie Quellcode behandeln.
+
+Mit Docs-as-Code reduzieren Sie bisherige Hemmschwellen, die durch Werkzeugwechsel
+und/oder Medienbrüche aufgetreten sind. Sie können Dokumente beliebig aufteilen
+(sprich: im Team arbeitsteilig angehen), und Dokumentation
+in den Build- und Testprozess ihrer Software integrieren.
+
+Sollten Sie in Ihrem Team bereits mit https://arc42.org[arc42] arbeiten,
 so werden Sie sich mit dem Docs-As-Code Ansatz besonders wohl fühlen.
 
-Andere Beteiligte ("Stakeholder") dürfen ihre favorisierten Tools wie Word,
-Powerpoint, Excel oder auch Enterprise-Architect(TM) weiter verwenden -
+Andere Beteiligte (_Stakeholder_) dürfen ihre favorisierten Tools wie Word,
+Powerpoint, Excel oder auch Enterprise-Architect(TM) weiter verwenden,
+denn Docs-as-Code kann automatisiert eine Vielzahl anderer Dokumenttypen integrieren
+(darauf gehen wir im zweiten Teil dieses Artikels detalliert ein).
 
-Falls das für Sie attraktiv klingt - dann lesen Sie weiter.
-Diese breite Palette an _Features_ bringen wir Ihnen in drei kleinen Portionen näher:
+Falls das für Sie attraktiv klingt - herzlich willkommen. Wir haben diese Ansätze
+bereits mehrfach in der Praxis erfolgreich einsetzen dürfen - und einige unserer
+Erfahrungen in diesem und den folgenden Artikeln verarbeitet.
+
+Erwarten Sie _Docs-as-Code_ in den folgenden drei Portionen:
 
 1. Grundlagen: In der vorliegenden Folge zeigen wir Ihnen AsciiDoc als
 unsere favorisierte Grundlage für technische Dokumentation. Sie erfahren allerhand
@@ -67,14 +115,6 @@ Probieren Sie das Original unter https://hsc.aim42.org ruhig aus. Die gesamte
 Site wird generiert, sämtliche Quellen liegen unter Versionsverwaltung und
 sind im Github-Reository öffentlich.
 
-== Was ist das Problem?
-Den größten Teil technischer Dokumentation schreiben Entwicklungsteams,
-und die mögen ihre Entwicklungsumgebungen viel lieber als die üblichen Office-Tools wie Word oder Excel.
-Zur pflege klassischer Dokumentation muss ein Entwickler aus seiner IDE in den Kontext der Textverarbeitung wechseln.
-Das kostet Überwindung.
-Programmbeispiele werden aus der Quelle kopiert und sind somit schon veraltet.
-
-Warum nicht die gleichen Tools für die Dokumentation verwenden, die auch für die Erstellung und Verwaltung von Sourcecode verwendet werden?
 
 == Anforderungen an (technische) Dokumentation
 
