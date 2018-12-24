@@ -101,9 +101,9 @@ Dokumentation für ein Softwaresystem zusammengeführt haben.
 .Eine Doku-Website
 image::hsc-aim42-site-screenshot.png[]
 
-//TODO: insert live screenshot https://github.com/asciidoctor/asciidoctorj-screenshot
-//note: läuft nicht. Macht wahrscheinlich auch als Test mehr Sinn
-// screenshot::https://hsc.aim42.org[htmlSanityChecker, frame=BROWSER]
+// Anmerkung (GS): Einen live-screenshot in einen Artikel/Buch,
+// ohne dass ein Mensch den kontrolliert,
+// ergibt in meinen Augen überhaupt keinen Sinn... Nur Risiko und Techno-Spielerei...
 
 
 In der Navigationsleiste dieser Site finden Sie drei typische Arten von
@@ -116,14 +116,16 @@ Site wird generiert, sämtliche Quellen liegen unter Versionsverwaltung und
 sind im Github-Reository öffentlich.
 
 
-== Anforderungen an (technische) Dokumentation
+== Bestandteile technischer Dokumentation
 
-Der wahrscheinlich größre Teil technischer Dokumentation besteht aus Fliesstext und Codebeispielen mit dem Ergebnis der Ausführung - Text und Screenshots.
-Allerdings stellen unterschiedliche Dokumentationsarten auch unterschiedliche Anforderungen and wie zur Erstellung benötigten Werkzeuge.
+Für technische Dokumentation benötigen Sie _die üblichen Verdächtigen_,
+nämlich Überschriften, Fliesstext mit Auszeichnungen wie fett und kursiv
+sowie Tabellen, Diagramme und Querverweise. Uns helfen oft Codebeispiele
+(am besten inkludiert aus dem Original-Code-Repository), und am besten
+soll unsere Dokumentation modular aufgebaut und flexibel kombiniert werden können.
 
-Ein Blick auf das arc42-Template footnote:[https://arc42.org] zur Dokumentation der Architektur vons Softwaresystemen zeigt, dass bei Architekutrdokumentation auch tabellarische Übersichten und viele Diagramme benötigt werden.
-
-== Dokumentation als "plain text"
+XXX
+=== Dokumentation als "plain text"
 
 Das Markup-Format Asciidoc footnote:[https://de.wikipedia.org/wiki/AsciiDoc] zusammen mit dem Konverter Asciidoctor footnote:[https://asciidoctor.org/] hat sich zur Erstellung technischer Dokumentation mit den genannten Anforderungen nicht nur bewährt, sondern auch klar von anderen Formaten wie MarkDown abgehoben:
 
