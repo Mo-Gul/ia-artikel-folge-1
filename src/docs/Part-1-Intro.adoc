@@ -54,12 +54,12 @@ mit der Sie auch Ihre Software entwickeln.
 
 Damit können Sie ein breites Spektrum technischer Dokumentation von Software abdecken,
 beispielsweise Entwicklungs-, Architektur- oder auch Betriebsdokumentation.  Wir persönlich
-haben auch User- auf diese Weise erstellt.
+haben auch Anforderungs- und Userdokumentation auf diese Weise erstellt.
 
 Für diesen Ansatz hat sich im Netz der Begriff _Docs-as-Code_ etabliert -
 Dokumentation genauso wie Quellcode behandeln.
 
-Mit Docs-as-Code reduzieren Sie bisherige Hemmschwellen, die durch Werkzeugwechsel
+Mit Docs-as-Code reduzieren Sie die lästigen Hemmschwellen, die durch Werkzeugwechsel
 und/oder Medienbrüche aufgetreten sind. Sie können Dokumente beliebig aufteilen
 (sprich: im Team arbeitsteilig angehen), und Dokumentation
 in den Build- und Testprozess ihrer Software integrieren.
@@ -76,13 +76,13 @@ Falls das für Sie attraktiv klingt - herzlich willkommen. Wir haben diese Ansä
 bereits mehrfach in der Praxis erfolgreich einsetzen dürfen - und einige unserer
 Erfahrungen in diesem und den folgenden Artikeln verarbeitet.
 
-Erwarten Sie _Docs-as-Code_ in den folgenden drei Portionen:
+Sie finden _Docs-as-Code_ in drei Teilen erläutert:
 
-1. Grundlagen: In der vorliegenden Folge zeigen wir Ihnen AsciiDoc als
+1. Die Grundlagen: In der vorliegenden Folge zeigen wir Ihnen AsciiDoc als
 unsere favorisierte Grundlage für technische Dokumentation. Sie erfahren allerhand
 über Gliederung, Formatierung, Modularisierung, Integration von Diagrammen
 und Quellcode.
-2. In der zweiten Folge lernen Sie docToolchain kennen, die OpenSource Lösung zur Unterstützung des Docs-As-Code Ansatzes.
+2. In der zweiten Folge lernen Sie XXX[docToolchain] kennen, die OpenSource Lösung zur Unterstützung des Docs-As-Code Ansatzes.
  Sie lernen die Integration von Office-Dokumenten, Confluence(tm) und Enterprise-Architect(TM)  in ihre Dokumentation kennen.
 3. In der dritten Folge bringen wir _alles unter einem Dach_ unter:
 Sie erfahren, wie Sie die verschiedenen Arten von Dokumentation (etwa Architektur- und Entwicklungsdokumentation sowie User-Manuals, Tutorials
@@ -112,8 +112,9 @@ Dokumentation, nämlich "User-Guide" (Benutzungsanleitung o.ä.), "Development G
 beispielsweise auf Basis des https://arc42.org[arc42 Templates].
 
 Probieren Sie das Original unter https://hsc.aim42.org ruhig aus. Die gesamte
-Site wird generiert, sämtliche Quellen liegen unter Versionsverwaltung und
-sind im Github-Reository öffentlich.
+Site wird nach dem Motto EYOD (_eat your own dogfood_) generiert,
+sämtliche Quellen liegen unter Versionsverwaltung und
+sind im https://github.com/aim42/htmlSanityCheck[Github-Repository] öffentlich.
 
 
 == Bestandteile technischer Dokumentation
@@ -124,17 +125,44 @@ sowie Tabellen, Diagramme und Querverweise. Uns helfen oft Codebeispiele
 (am besten inkludiert aus dem Original-Code-Repository), und am besten
 soll unsere Dokumentation modular aufgebaut und flexibel kombiniert werden können.
 
-XXX
+Lassen Sie und Schritt für Schritt starten:
+
 === Dokumentation als "plain text"
 
-Das Markup-Format Asciidoc footnote:[https://de.wikipedia.org/wiki/AsciiDoc] zusammen mit dem Konverter Asciidoctor footnote:[https://asciidoctor.org/] hat sich zur Erstellung technischer Dokumentation mit den genannten Anforderungen nicht nur bewährt, sondern auch klar von anderen Formaten wie MarkDown abgehoben:
+Nutzen Sie das das leichtgewichtige Markup-Format
+Asciidoc footnote:[https://de.wikipedia.org/wiki/AsciiDoc] als Grundlage,
+seit vielen Jahren bewährt. Im Gegensatz zum ebenfalls weit verbreiteten
+XXX-Referenz-JohnGruber[Markdown] handelt sich bei AsciiDoc um einen wirklichen Standard,
+ohne Fragmentierung durch unterschiedliche Dialekte
+footnote:[Markdown wurde von John Gruber ursprünglich als minimalistisches Format definiert,
+Erweiterungen für Tabellen, Modularisierung, Styling etc. haben unterschiedliche
+Dialekte auf unterschiedliche Art realisiert. Texte in solchen Dialekten sind
+in der Regel nicht 1:1 kompatibel mit anderen Dialekten.]
+AsciiDoc ist sowohl einfach als auch funktional mächtig
+footnote:[Der Ausdruck der detaillierten AsciiDoc Benutzerdokumentation würde 274 Druckseiten füllen.]
+, und erfüllt
+damit sämtliche oben genannten  Anforderungen an Dokumentation. Bei Bedarf
+  können Sie sogar Bücher damit schreiben.).
 
-* Es handelt sich um einen wirklichen Standard - keine Dialekte
-* Es ist sehr mächtig und erfüllt smit alle Wünsche
-* Es unterstützt Tabellen, Modularisierung verschiedene Ausgabeformate und vieles mehr.
+Für AsciiDoc gibt es einen (Open-Source, d.h. frei verfügbaren) Konverter
+namens _Asciidoctor_ footnote:[https://asciidoctor.org/], der AsciiDoc in verschiedene
+Zielformate (etwa Html oder DocBook) konvertieren kann.
 
-AsciiDoc ist so mächtig, dass ein Ausdruck der Benutzerdokumentation 274 Seiten füllen würde.
-Wir zeigen Ihnen hier die wichtigsten Features, damit Sie schnell loslegen können.
+In Abbildung <<dac-uebersicht>> finden Sie eine Übersicht:
+
+1. Verschiedene Beteiligte, etwa das Entwicklungsteam oder die ArchitektInnen, erstellen
+jeweils Teile der Dokumentation, sowohl in Textform als AsciiDoc-Dateien, als auch
+Diagramme.
+2. Ein Build-Prozess kombiniert und konvertiert diese einzelnen Teile zu den gewünschten Zielformaten,
+beispielsweise HTML oder pdf. In Folge 2 dieses Artikels zeigen wir Ihnen, wie Sie sehr einfach
+auch Confluence, docx oder andere Formate erzeugen können.
+3. Andere Stakeholder arbeiten weiterhin in ihren etablierten Werkzeugen, etwa Word. Deren
+Dokumentation liegt in Office-Formaten, etwa docx oder xlsx vor.
+4. Die docToolchain (genauer erklärt in Folge 2) integriert auch solche Formate.
+
+[[dac-uebersicht]]
+.Docs-as-Code in der Übersicht
+image::docs-as-code-uebersiht.png[]
 
 === Überschriften
 
