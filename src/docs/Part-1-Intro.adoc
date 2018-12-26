@@ -56,7 +56,8 @@ Damit können Sie ein breites Spektrum technischer Dokumentation von Software ab
 beispielsweise Entwicklungs-, Architektur- oder auch Betriebsdokumentation.  Wir persönlich
 haben auch Anforderungs- und Userdokumentation auf diese Weise erstellt.
 
-Für diesen Ansatz hat sich im Netz der Begriff _Docs-as-Code_ etabliert -
+Für diesen Ansatz hat sich im Netz der Begriff
+https://www.writethedocs.org/guide/docs-as-code/[_Docs-as-Code_] etabliert -
 Dokumentation genauso wie Quellcode behandeln.
 
 Mit Docs-as-Code reduzieren Sie die lästigen Hemmschwellen, die durch Werkzeugwechsel
@@ -82,15 +83,19 @@ Sie finden _Docs-as-Code_ in drei Teilen erläutert:
 unsere favorisierte Grundlage für technische Dokumentation. Sie erfahren allerhand
 über Gliederung, Formatierung, Modularisierung, Integration von Diagrammen
 und Quellcode.
-2. In der zweiten Folge lernen Sie XXX[docToolchain] kennen, die OpenSource Lösung zur Unterstützung des Docs-As-Code Ansatzes.
+2. In der zweiten Folge lernen Sie
+https://doctoolchain.github.io/docToolchain/[docToolchain] kennen, die
+OpenSource Lösung zur Unterstützung des Docs-As-Code Ansatzes.
  Sie lernen die Integration von Office-Dokumenten, Confluence(tm) und Enterprise-Architect(TM)  in ihre Dokumentation kennen.
 3. In der dritten Folge bringen wir _alles unter einem Dach_ unter:
 Sie erfahren, wie Sie die verschiedenen Arten von Dokumentation (etwa Architektur- und Entwicklungsdokumentation sowie User-Manuals, Tutorials
  etc) im Rahmen einer integrativen Website zusammenführen können.
 
-Sämtlichen Quellcode und Beispiele aller drei Teile finden Sie online in einem öffentlichen (git-) Repository.
+Sämtlichen Quellcode und Beispiele aller drei Teile finden Sie online
+in einem öffentlichen (git-) Repository.
 
-Um Ihnen das manchmal ungeliebte Thema _Dokumentation_ etwas schmackhaft zu machen, möchten wir Ihnen einen Ausblick auf das mögliche Endergebnis geben: Eine Website
+Um Ihnen das manchmal ungeliebte Thema _Dokumentation_ etwas schmackhaft zu machen, möchten wir Ihnen einen
+Ausblick auf das mögliche Endergebnis geben: Eine Website
 (siehe <<hsc-homepage>>), auf der Sie drei verschiedene Typen von Dokumentation unter einem (homogenen) Dach vereinigt finden:
 
 == So sieht's aus
@@ -106,14 +111,15 @@ image::hsc-aim42-site-screenshot.png[]
 // ergibt in meinen Augen überhaupt keinen Sinn... Nur Risiko und Techno-Spielerei...
 
 
-In der Navigationsleiste dieser Site finden Sie drei typische Arten von
+In der Navigationsleiste der Abbildung 1 finden Sie drei typische Arten von
 Dokumentation, nämlich "User-Guide" (Benutzungsanleitung o.ä.), "Development Guide"
 (detaillierte Informationen für das Entwicklungsteam) sowie die Architekturdokumentation,
 beispielsweise auf Basis des https://arc42.org[arc42 Templates].
 
 Probieren Sie das Original unter https://hsc.aim42.org ruhig aus. Die gesamte
-Site wird nach dem Motto EYOD (_eat your own dogfood_) generiert,
-sämtliche Quellen liegen unter Versionsverwaltung und
+Site wird nach dem Motto
+https://en.wikipedia.org/wiki/Eating_your_own_dog_food[_drink your own champagne_]
+generiert, sämtliche Quellen liegen unter Versionsverwaltung und
 sind im https://github.com/aim42/htmlSanityCheck[Github-Repository] öffentlich.
 
 
@@ -132,17 +138,16 @@ Lassen Sie und Schritt für Schritt starten:
 Nutzen Sie das das leichtgewichtige Markup-Format
 Asciidoc footnote:[https://de.wikipedia.org/wiki/AsciiDoc] als Grundlage,
 seit vielen Jahren bewährt. Im Gegensatz zum ebenfalls weit verbreiteten
-XXX-Referenz-JohnGruber[Markdown] handelt sich bei AsciiDoc um einen wirklichen Standard,
+https://daringfireball.net/projects/markdown/[Markdown] handelt sich bei AsciiDoc um einen wirklichen Standard,
 ohne Fragmentierung durch unterschiedliche Dialekte
 footnote:[Markdown wurde von John Gruber ursprünglich als minimalistisches Format definiert,
 Erweiterungen für Tabellen, Modularisierung, Styling etc. haben unterschiedliche
 Dialekte auf unterschiedliche Art realisiert. Texte in solchen Dialekten sind
 in der Regel nicht 1:1 kompatibel mit anderen Dialekten.]
 AsciiDoc ist sowohl einfach als auch funktional mächtig
-footnote:[Der Ausdruck der detaillierten AsciiDoc Benutzerdokumentation würde 274 Druckseiten füllen.]
-, und erfüllt
-damit sämtliche oben genannten  Anforderungen an Dokumentation. Bei Bedarf
-  können Sie sogar Bücher damit schreiben.).
+footnote:[Der Ausdruck der detaillierten AsciiDoc Benutzerdokumentation würde 274 Druckseiten füllen.], und erfüllt
+damit sämtliche oben genannten  Anforderungen an Dokumentation.
+Bei Bedarf können Sie sogar Bücher damit schreiben.).
 
 Für AsciiDoc gibt es einen (Open-Source, d.h. frei verfügbaren) Konverter
 namens _Asciidoctor_ footnote:[https://asciidoctor.org/], der AsciiDoc in verschiedene
@@ -162,12 +167,17 @@ Dokumentation liegt in Office-Formaten, etwa docx oder xlsx vor.
 
 [[dac-uebersicht]]
 .Docs-as-Code in der Übersicht
-image::docs-as-code-uebersiht.png[]
+image::docs-as-code-uebersicht.png[]
+
+Aber jetzt wird es Zeit für konkrete Details. Sie werden sehen, dass
+schreiben mit AsciiDoc wirklich einfach geht:
 
 === Überschriften
 
-Überschriften werden einfach mit vorangestellten `=` definiert, wobei die Überschrifteneben der Anzahl der `=`-Zeichen entspricht.
-Ein einzelnes `=` ist dem Buchtitel vorbehalten, so dass ein normaler Text mit `==` als erste Überschriftenebene beginnt.
+Erzeugen Sie Überschriften einfach durch ein vorangestelltes `=`,
+wobei die Überschrifteneben der Anzahl der `=`-Zeichen entspricht.
+Ein einzelnes `=` ist dem Buchtitel oder Dokumentnamen vorbehalten,
+so dass ein normaler Text mit `==` als erste Überschriftenebene beginnt.
 
 .Überschriften
 [options="noheader",cols="l,a"]
@@ -186,9 +196,10 @@ Ein einzelnes `=` ist dem Buchtitel vorbehalten, so dass ein normaler Text mit `
 
 === Absätze
 
-AsciiDoc ignoriert einfache Zeilenumbrüche und erkennt erst nach einer Leerzeile einen Absatz.
-Dieser Mechanismus hilft beim strukturieren von Texten.
-Möchten Sie dennoch gezielt einen Zeilenumbruch setzen, so beenden Sie die Zeile mit einem Leerzeichen und `+`
+AsciiDoc ignoriert einfache Zeilenumbrüche und erkennt erst nach einer Leerzeile
+einen Absatz. Dieser Mechanismus hilft beim strukturieren von Texten.
+Möchten Sie dennoch gezielt einen Zeilenumbruch setzen,
+so beenden Sie die Zeile mit einem Leerzeichen und `+`
 
 .Absätze
 [options="noheader",cols="l,a"]
@@ -212,11 +223,15 @@ erzwungenem Umbruch
 
 === Links und Verweise
 
-Eine URL wird von Asciidoctor als solche erkannt und entsprechend verlinkt.
-Möchten Sie die URL im Text durch einen Text ersetzen, so hängen Sie diesen in eckigen Klammern einfach dran. fertig.
+URLs können Sie einfach schreiben, sie werden von Asciidoctor als solche erkannt
+und im Zielformat (beispielsweise HTML) entsprechend verlinkt.
+Möchten Sie die URL im Text durch einen Text ersetzen,
+so hängen Sie diesen in eckigen Klammern einfach dran, und fertig.
 
-Realtive Verweise zwischen mehreren Dokumenten wie z.B. `docs/tutorial.html` kann Asciidoctor aufgrund des fehlenden Protokolls nicht automatisch erkennen.
-Setzen Sie einfach ein `link:` davor und leere Klammern `[]`dahinter und alles ist wie gehabt.
+Relative Verweise zwischen mehreren Dokumenten wie z.B. `docs/tutorial.html` kann
+Asciidoctor aufgrund der fehlenden Protokollbezeichnung nicht automatisch erkennen.
+Setzen Sie einfach ein `link:` davor und leere Klammern `[]`dahinter und alles
+ist wie gehabt.
 
 [[tabelle-links]]
 .Links
@@ -246,9 +261,9 @@ Wie Asciidoctor die Referenz benennt steuern Sie über das Attribut `:xrefstyle:
 |===
 |
 :xrefstyle: short
-<<tabelle-links>>
+Siehe <<tabelle-links>>.
 |
-link:.[Tabelle 3]
+Siehe link:.[Tabelle 3].
 
 |
 :xrefstyle: full
@@ -264,25 +279,20 @@ link:.[Links]
 
 |===
 
-Asciidoctor setzt übrigens viele Anker als Sprungziele für Überschriften, Tabellen und Bilder automatisch.
-Das vereinfacht die Arbeit noch weiter.
+Asciidoctor setzt übrigens viele Anker als Sprungziele für Überschriften,
+Tabellen und Bilder automatisch.
+Das vereinfacht Querverweise erheblich, weil Sie diese Sprungziele nicht mehr manuell
+definieren müssen (aber Vorsicht - wenn Sie eine Überschrift umbenennen, so ändert
+  sich damit auch der automatisch erzeugte Anker!).
+
 
 === Bilder und Diagramme
 
-Apropos Bilder. Für Links haben Sie schon die Makro-Syntax von Asciidoc kennen gelehrnt. `\link:seite.html[text]` oder allgemeiner `makro:ziel[optionen]`.
-Diese Syntax begenet Ihnen imemr wieder, so daß es sich lohnt sie zu verinnerlichen.
-So auch z.B. beim referenzieren von Bildern:
+Bilder und Diagramme können Sie ähnlich wie Querverweise einfügen - stellen
+Sie einfach das Wort "image" voran: `image:<name-des-bildes>[]`. In der folgenden
+Tabelle zeigen wir Ihnen gleich noch die Möglichkeiten der Skalierung von Diagrammen.
 
-.Bilder
-[options="noheader",cols="l,a"]
-|===
-| image:hhgdac-logo.png[]
-| image:hhgdac-logo.png[]
 
-|===
-
-Der Doppelpunkt `:` zwischen dem Makro-Namen und dem Ziel bestimmt übrigens, ob es sich um ein Inline- `:` oder Block- `::` Makro handelt.
-So können Sie steurn, ob das Bild innerhalb eines Textes (inline) oder alleinstehend als Absatz (block) dargestellt wird.
 
 .Bilder
 [options="noheader",cols="l,a"]
@@ -290,26 +300,33 @@ So können Sie steurn, ob das Bild innerhalb eines Textes (inline) oder alleinst
 | Docs-as-Code image:hhgdac-logo.png[] macht Spass!
 | Docs-as-Code image:hhgdac-logo.png[width=20%] macht Spass!
 
-| Docs-as-Code
+| Das selbe Bild image:hhgdac-logo.png[width=10%] in kleiner.
+| Das selbe Bild image:hhgdac-logo.png[width=10%] in kleiner.
+
+| Bilder in eigenen Zeilen
 
 image::hhgdac-logo.png[]
 
-macht Spass!
-| Docs-as-Code
+klappen auch.
+| Bilder in eigenen Zeilen
 
-image::hhgdac-logo.png[width=20%]
+image::hhgdac-logo.png[]
 
-macht Spass!
+klappen auch.
 
 |===
 
-Bilder sind mächtig, denn Sie können viel mit ihnen darstellen.
+Diagramme und Bilder stellen wichtige Elemente technischer Dokumentation dar,
+weil sie Zusammenhänge aufzeigen und Überblick ermöglichen. Oftmals erstellen Sie
+Diagramme in einem speziell dafür vorgesehenen Werkzeug
 Sie sind aber immer nur die Darstellung der Daten einer Quelle.
 Binden Sie nur die Bilder in Ihre Dokumentation ein, so geht automatisch der enge Bezug zur Quelle verloren.
 
-Für UML-Diagramme gibt es da eine trickreiche Lösung.
-Beschreiben Sie Ihr Diagramm doch einfach textuell und überlassen es Asciidoctor das Diagramm in ein Bild zu wandeln.
-Das Tool, welches Asciidoctor hierfür verwendet heisst PlantUML.
+Für UML-Diagramme schlagen wir Ihnen eine elegante Lösung namens PlantUML vor:
+Damit beschreiben Sie Ihr Diagramm textuell und überlassen es Asciidoctor,
+das Diagramm in ein Bild zu wandeln. Unter der Haube nutzt AsciiDoctor dafür
+den Open Source Konverter, der die textuelle Syntax von PlantUML in Grafikformate
+wie jpg oder png verwandelt.
 
 [[plantuml]]
 .PlantUML
@@ -341,7 +358,7 @@ Benutzer <-- Browser
 
 Das Beispiel in <<plantuml>> zeigt nicht nur die Beschreibung eines Diagramms als versionierbaren Text sondern auch die Block-Syntax von AsciiDoc.
 
-Blöcke vreschiedener Arten (z.B. Sidebar oder Zitat) werden mit mindestens vier gleichen Zeichen wie z.B. `.`, `-` oder `=` eingeleitet und mit genauso vielen Zeichen des gleichen Typs wieder beendet.
+Blöcke verschiedener Arten (z.B. Sidebar oder Zitat) werden mit mindestens vier gleichen Zeichen wie z.B. `.`, `-` oder `=` eingeleitet und mit genauso vielen Zeichen des gleichen Typs wieder beendet.
 Stellen Sie dem Block (oder einem referenzierten Bild) eine Zeile voran, die Sie mit einem Punkt `.` einleiten und Sie erhalten eine Beschriftung.
 
 .Passthrough
@@ -375,8 +392,10 @@ test <b>dfg</b>
 test <b>dfg</b>
 ----
 
+
 === Tabellen
 
+XXX
 Keine Regel ohne Ausnahme:
 Tabellen sind Blöcke, die mit `|===` eingeleitet werden.
 
