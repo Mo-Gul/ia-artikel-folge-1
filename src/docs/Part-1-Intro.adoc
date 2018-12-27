@@ -356,42 +356,119 @@ Benutzer <-- Browser
 
 === Blöcke
 
-Das Beispiel in <<plantuml>> zeigt nicht nur die Beschreibung eines Diagramms als versionierbaren Text sondern auch die Block-Syntax von AsciiDoc.
+Das Beispiel in <<plantuml>> zeigt in der linken Spalte sowohl die _Beschreibung_
+eines Diagramms in Text als auch die so genannte Block-Syntax von AsciiDoc.
 
-Blöcke verschiedener Arten (z.B. Sidebar oder Zitat) werden mit mindestens vier gleichen Zeichen wie z.B. `.`, `-` oder `=` eingeleitet und mit genauso vielen Zeichen des gleichen Typs wieder beendet.
-Stellen Sie dem Block (oder einem referenzierten Bild) eine Zeile voran, die Sie mit einem Punkt `.` einleiten und Sie erhalten eine Beschriftung.
+AsciiDoc ermöglicht Ihnen, zusammengehörige Inhalte bestimmter Art zusammenzufassen,
+dazu gehören Diagramme, Zitate oder auch Quellcode-Listings.
+Leiten Sie einen Block einfach über vier gleiche Zeichen (wie `.`, `-` oder `=`) ein,
+und beenden Sie mit genauso vielen Zeichen des gleichen Typs.
 
-.Passthrough
+Stellen Sie dem Block (oder einem referenzierten Bild) eine Zeile voran, die Sie mit einem Punkt `.`
+einleiten und Sie erhalten eine Beschriftung. Einige für technische
+Dokumentation wichtige Typen solcher Blocks finden Sie nachstehend:
+
+[options="noheader",cols="l,a"]
+|===
+
+|.Passthrough Block ohne Verarbeitung
 ++++
-Passthrough -
+Passthrough - hier wird **nichts** verarbeitet.
 ++++
 
-.Literal
-....
-test <b>dfg</b>
-....
+|.Passthrough Block ohne Verarbeitung
+++++
+Passthrough - hier wird **nichts** verarbeitet.
+++++
 
-.Sidebar
-****
-test <b>dfg</b>
-****
+Ein `Passthrough`Block verhindert, dass der Inhalt des Blocks vom AsciiDoctor Prozessor
+verarbeitet oder interpretiert wird.
 
-.After landing the cloaked Klingon bird of prey in Golden Gate park:
-[quote, Captain James T. Kirk, Star Trek IV: The Voyage Home]
-____
-Everybody remember where we parked.
-____
-
-.test
-====
-test <b>dfg</b>
-====
-
-.Listing
+|.Quellcode (einfach)
+[source,go]
 ----
-test <b>dfg</b>
+package main
+import "fmt"
+func main() {
+    fmt.Println("hello world")
+}
+----
+|.Quellcode (einfach)
+[source,go]
+----
+package main
+import "fmt"
+func main() {
+    fmt.Println("hello world")
+}
 ----
 
+|.Quellcode (mit Zeilennummern)
+[source,go, linenums]
+----
+package main
+import "fmt"
+func main() {
+    fmt.Println("hello world")
+}
+----
+|.Quellcode (mit Zeilennummern)
+[source,go, linenums]
+----
+package main
+import "fmt"
+func main() {
+    fmt.Println("hello world")
+}
+----
+
+
+|.Code mit Erklärungen
+[source,java]
+--
+import org.harryp.Voldemort; // <1>
+import org.harryp.Harry; // <2>
+
+public class Stakeholder {
+
+    public String wandName; // <3>
+
+    // ...
+}
+--
+<1> diesen Namen besser vermeiden
+<2> der Knabe mit der Brille
+<3> Zauberstäbe tragen Namen
+
+|.Code mit Erklärungen
+[source,java]
+--
+import org.harryp.Voldemort; // <1>
+import org.harryp.Harry; // <2>
+
+public class Stakeholder {
+
+    public String wandName; // <3>
+
+    // ...
+}
+--
+<1> diesen Namen besser vermeiden
+<2> der Knabe mit der Brille
+<3> Zauberstäbe tragen Namen
+
+
+
+|.Sidebar (Textkasten)
+****
+hier steht besonders hervorgehobener Text
+****
+|.Sidebar (Textkasten)
+****
+hier steht besonders hervorgehobener Text
+****
+
+|===
 
 === Tabellen
 
@@ -402,16 +479,19 @@ Tabellen sind Blöcke, die mit `|===` eingeleitet werden.
 
 === Modulare Dokumentation
 
-Sie möchten im Team an Dokumentation arbeiten
-Durch `include`-Anweisungen modularisieren wir die Dokumentation,
-d.h. wir können sie in kleine Teile zerlegen, im Team getrennt bearbeiten
+Im Normalfall möchten Sie gemeinsam mit Ihrem Team an Dokumentation arbeiten,
+d.h. Sie müssen Dokumente modularisieren. In AsciiDoc geht das sehr elegant,
+nämlich durch die einfache `include`-Anweisung.
+
+Sie können Dokumentation damit in kleine Teile zerlegen, im Team getrennt bearbeiten
 und bei Bedarf an beliebigen Stellen wieder einfügen.
 
-Schematisch sehen Sie das in Abbildung XX.
+Schematisch sehen Sie das in Abbildung <<abb-modularisierung>>.
 
-----
-include::hello.adoc[]
-----
+[[abb-modularisierung]]
+.Modularisierung mit AsciiDoc - schematisch:
+image::modularisierung-uebersicht.png[]
+
 
 == Fazit
 
