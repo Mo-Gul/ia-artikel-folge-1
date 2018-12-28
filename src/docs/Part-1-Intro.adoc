@@ -1,11 +1,4 @@
-:source-highlighter: coderay
-:imagesdir: images
-:figure-caption: Abbildung
-:table-caption: Tabelle
-:example-caption: Beispiel
-:xrefstyle: short
-:sectanchors:
-
+include::config.adoc[]
 
 == Docs-As-Code - Die Grundlagen
 
