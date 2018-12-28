@@ -6,7 +6,7 @@ include::config.adoc[]
 
 Eine grossangelegte Umfragefootnote:[https://opensourcesurvey.org/2017/]
 zu "Open Source" zeigt, dass unvollständige oder verwirrende Dokumentation
-zu den Hauptproblem freier Software zählt. Das gilt neben Anwendungungsdokumentation
+zu den Hauptproblemen freier Software zählt. Das gilt neben Anwendungungsdokumentation
 insbesondere auch für technische Dokumentation, etwa von Softwarearchitektur.
 
 Diese Aussage können wir sicherlich
@@ -40,7 +40,9 @@ Dann verschwindet für Entwicklungsteams das erste der oben genannten Probleme (
 Wir zeigen Ihnen genau diesen Ansatz: Integrieren Sie das bisher ungeliebten
 Thema _Dokumentation_ mit Hilfe robuster Open-Source Werkzeuge einfach und effektiv
 in Ihre Softwareentwicklung, mit Hilfe Ihres favorisierten Texteditors.
-_Mergen_ und _branchen_ Sie Dokumentation genau wie Quellcode. Statt binäre Dokumente
+_Mergen_ und _branchen_ Sie Dokumentation genau wie Quellcode.
+// forken und reviewen?
+Statt binäre Dokumente
 per Email zu versenden und Versionsnummern und Namenskürzel an die Dateinamen zu hängen,
 checken Sie Ihre Dokumentation per commit und push ein, mit derselben Branching-Strategie
 mit der Sie auch Ihre Software entwickeln.
@@ -79,13 +81,14 @@ und Quellcode.
 2. In der zweiten Folge lernen Sie
 https://doctoolchain.github.io/docToolchain/[docToolchain] kennen, die
 OpenSource Lösung zur Unterstützung des Docs-As-Code Ansatzes.
- Sie lernen die Integration von Office-Dokumenten, Confluence(tm) und Enterprise-Architect(TM)  in ihre Dokumentation kennen.
+ Sie lernen die Integration von Office-Dokumenten, Confluence(TM) und Enterprise-Architect(TM)  in ihre Dokumentation kennen.
 3. In der dritten Folge bringen wir _alles unter einem Dach_ unter:
 Sie erfahren, wie Sie die verschiedenen Arten von Dokumentation (etwa Architektur- und Entwicklungsdokumentation sowie User-Manuals, Tutorials
  etc) im Rahmen einer integrativen Website zusammenführen können.
 
 Sämtlichen Quellcode und Beispiele aller drei Teile finden Sie online
 in einem öffentlichen (git-) Repository.
+//TODO: repository verlinken
 
 Um Ihnen das manchmal ungeliebte Thema _Dokumentation_ etwas schmackhaft zu machen, möchten wir Ihnen einen
 Ausblick auf das mögliche Endergebnis geben: Eine Website
@@ -102,9 +105,9 @@ image::hsc-aim42-site-screenshot.png[]
 // Anmerkung (GS): Einen live-screenshot in einen Artikel/Buch,
 // ohne dass ein Mensch den kontrolliert,
 // ergibt in meinen Augen überhaupt keinen Sinn... Nur Risiko und Techno-Spielerei...
+// RDM: sehe ich mittlerweile genauso, aber ein automatisierter Screenshot aus einem Test heraus macht IMHO weiterhin Sinn...
 
-
-In der Navigationsleiste der Abbildung 1 finden Sie drei typische Arten von
+In der Navigationsleiste der <<hsc-homepage>> finden Sie drei typische Arten von
 Dokumentation, nämlich "User-Guide" (Benutzungsanleitung o.ä.), "Development Guide"
 (detaillierte Informationen für das Entwicklungsteam) sowie die Architekturdokumentation,
 beispielsweise auf Basis des https://arc42.org[arc42 Templates].
@@ -124,9 +127,12 @@ sowie Tabellen, Diagramme und Querverweise. Uns helfen oft Codebeispiele
 (am besten inkludiert aus dem Original-Code-Repository), und am besten
 soll unsere Dokumentation modular aufgebaut und flexibel kombiniert werden können.
 
-Lassen Sie und Schritt für Schritt starten:
+Lassen Sie uns Schritt für Schritt starten:
 
 === Dokumentation als "plain text"
+
+Der Schlüssel zum Docs-as-Code Ansatz ist die Verwendung eines "plain text" formats zur Dokumentation anstelle eines binärformats einer typischen Textverarbeitung.
+Nur so können Sie Ihre Dokumentation tatsächlich wie Code behandeln und verwalten.
 
 Nutzen Sie das das leichtgewichtige Markup-Format
 Asciidoc footnote:[https://de.wikipedia.org/wiki/AsciiDoc] als Grundlage,
@@ -136,19 +142,20 @@ ohne Fragmentierung durch unterschiedliche Dialekte
 footnote:[Markdown wurde von John Gruber ursprünglich als minimalistisches Format definiert,
 Erweiterungen für Tabellen, Modularisierung, Styling etc. haben unterschiedliche
 Dialekte auf unterschiedliche Art realisiert. Texte in solchen Dialekten sind
-in der Regel nicht 1:1 kompatibel mit anderen Dialekten.]
+in der Regel nicht 1:1 kompatibel mit anderen Dialekten.].
 AsciiDoc ist sowohl einfach als auch funktional mächtig
 footnote:[Der Ausdruck der detaillierten AsciiDoc Benutzerdokumentation würde 274 Druckseiten füllen.], und erfüllt
 damit sämtliche oben genannten  Anforderungen an Dokumentation.
 Bei Bedarf können Sie sogar Bücher damit schreiben.).
 
+.Asciidoctor-Logo
 image:asciidoc-logo.svg[]
 
 Für AsciiDoc gibt es einen (Open-Source, d.h. frei verfügbaren) Konverter
 namens _Asciidoctor_ footnote:[https://asciidoctor.org/], der AsciiDoc in verschiedene
 Zielformate (etwa Html oder DocBook) konvertieren kann.
 
-In Abbildung <<dac-uebersicht>> finden Sie eine Übersicht:
+In <<dac-uebersicht>> finden Sie eine Übersicht:
 
 1. Verschiedene Beteiligte, etwa das Entwicklungsteam oder die ArchitektInnen, erstellen
 jeweils Teile der Dokumentation, sowohl in Textform als AsciiDoc-Dateien, als auch
@@ -157,7 +164,7 @@ Diagramme.
 beispielsweise HTML oder pdf. In Folge 2 dieses Artikels zeigen wir Ihnen, wie Sie sehr einfach
 auch Confluence, docx oder andere Formate erzeugen können.
 3. Andere Stakeholder arbeiten weiterhin in ihren etablierten Werkzeugen, etwa Word. Deren
-Dokumentation liegt in Office-Formaten, etwa docx oder xlsx vor.
+Dokumentation liegt in Office-Formaten, etwa pptx oder xlsx vor.
 4. Die docToolchain (genauer erklärt in Folge 2) integriert auch solche Formate.
 
 [[dac-uebersicht]]
