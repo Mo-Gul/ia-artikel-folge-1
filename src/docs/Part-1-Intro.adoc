@@ -149,6 +149,8 @@ footnote:[Der Ausdruck der detaillierten AsciiDoc Benutzerdokumentation würde 2
 damit sämtliche oben genannten  Anforderungen an Dokumentation.
 Bei Bedarf können Sie sogar Bücher damit schreiben.).
 
+image:asciidoc-logo.svg[]
+
 Für AsciiDoc gibt es einen (Open-Source, d.h. frei verfügbaren) Konverter
 namens _Asciidoctor_ footnote:[https://asciidoctor.org/], der AsciiDoc in verschiedene
 Zielformate (etwa Html oder DocBook) konvertieren kann.
@@ -172,6 +174,13 @@ image::docs-as-code-uebersicht.png[]
 Aber jetzt wird es Zeit für konkrete Details. Sie werden sehen, dass
 schreiben mit AsciiDoc wirklich einfach geht:
 
+****
+Falls Sie unsere Beispiele direkt selbt nachvollziehen möchten, finden Sie den
+Quellcode in unserem öffentlichen
+https://github.com/doctoolchain/XXXX[Github-Repository].
+
+****
+
 === Überschriften
 
 Erzeugen Sie Überschriften einfach durch ein vorangestelltes `=`,
@@ -181,7 +190,7 @@ so dass ein normaler Text mit `==` als erste Überschriftenebene beginnt.
 
 .Überschriften
 [options="noheader",cols="l,a"]
-|====
+|===
 |
 == Überschrift Ebene 1
 |
@@ -192,7 +201,7 @@ so dass ein normaler Text mit `==` als erste Überschriftenebene beginnt.
 |
 === Überschrift Ebene 2
 
-|====
+|===
 
 === Absätze
 
@@ -203,7 +212,7 @@ so beenden Sie die Zeile mit einem Leerzeichen und `+`
 
 .Absätze
 [options="noheader",cols="l,a"]
-|====
+|===
 |
 Zeile 1
 Zeile 2
@@ -219,7 +228,68 @@ erzwungenem Umbruch
 |
 neuer Absatz mit +
 erzwungenem Umbruch
-|====
+|===
+
+=== Textformate
+Text können Sie einfach in den "üblichen" Formaten darstellen. Darüber hinaus
+bietet AsciiDoc die Möglichkeit, beliebige css-Styles anzuwenden, aber das sprengt
+den Rahmen dieser kompakten Einführung.
+
+.Textformate
+[options="noheader",cols="l,a"]
+|===
+| **fett**
+| **fett**
+
+| _kursiv_
+| _kursiv_
+
+| `monospaced`
+| `monospaced`
+
+| Etwas [small]#kleiner#
+| Etwas [small]#kleiner#
+
+| Oder [big]#größer#
+| Oder [big]#größer#
+
+|===
+
+
+=== Listen
+Sowohl Listen wie (nummerierte) Aufzählungen funktionieren mit AsciiDoc intuitiv
+
+.Listen
+[options="noheader",cols="l,a"]
+|===
+| Einfache Liste (Vor dem ersten Punkt muss eine Leerzeile stehen)
+
+* Ein Punkt
+* Noch ein Punkt
+** Unterpunkt a
+** Unterpunkt b
+
+| Einfache Liste
+
+* Ein Punkt
+* Noch ein Punkt
+** Unterpunkt a
+** Unterpunkt b
+
+| Nummerierte Liste
+
+1. Punkt 1
+2. Punkt 2
+| Nummerierte Liste
+
+1. Punkt 1
+2. Punkt 2
+
+|===
+
+AsciiDoc bietet noch eine Vielzahl weiterer Möglichkeiten für solche Auflistungen
+an, mehr Details finden Sie in der
+https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#lists[Original-Dokumentation].
 
 === Links und Verweise
 
@@ -261,21 +331,21 @@ Wie Asciidoctor die Referenz benennt steuern Sie über das Attribut `:xrefstyle:
 |===
 |
 :xrefstyle: short
-Siehe <<tabelle-links>>.
+Siehe <<tabelle-links>>
 |
-Siehe link:.[Tabelle 3].
+Siehe link:.[Tabelle 3]
 
 |
 :xrefstyle: full
-<<tabelle-links>>
+Siehe <<tabelle-links>>
 |
-link:.[Tabelle 3, "Links"]
+Siehe link:.[Tabelle 3, "Links"]
 
 |
 :xrefstyle: basic
-<<tabelle-links>>
+Siehe <<tabelle-links>>
 |
-link:.[Links]
+Siehe link:.[Links]
 
 |===
 
@@ -354,36 +424,18 @@ Benutzer <-- Browser
 ....
 |===
 
-=== Blöcke
+=== Quellcode
 
-Das Beispiel in <<plantuml>> zeigt in der linken Spalte sowohl die _Beschreibung_
-eines Diagramms in Text als auch die so genannte Block-Syntax von AsciiDoc.
+In Ihrer technischen Dokumentation werden Sie an einigen Stellen
+Quellcode oder zumindest Code-Fragmente einfügen und erklären wollen.
 
-AsciiDoc ermöglicht Ihnen, zusammengehörige Inhalte bestimmter Art zusammenzufassen,
-dazu gehören Diagramme, Zitate oder auch Quellcode-Listings.
-Leiten Sie einen Block einfach über vier gleiche Zeichen (wie `.`, `-` oder `=`) ein,
-und beenden Sie mit genauso vielen Zeichen des gleichen Typs.
-
-Stellen Sie dem Block (oder einem referenzierten Bild) eine Zeile voran, die Sie mit einem Punkt `.`
-einleiten und Sie erhalten eine Beschriftung. Einige für technische
-Dokumentation wichtige Typen solcher Blocks finden Sie nachstehend:
+AsciiDoc bietet dafür sehr leistungsfähige Möglichkeiten. Beginnen wir
+mit der reinen Darstellung von Quellcode: Syntax-Highlighing, Zeilennummern
+und Markierungen, damit können Sie schon eine ganze Menge _anstellen_:
 
 [options="noheader",cols="l,a"]
 |===
 
-|.Passthrough Block ohne Verarbeitung
-++++
-Passthrough - hier wird **nichts** verarbeitet.
-++++
-
-|.Passthrough Block ohne Verarbeitung
-++++
-Passthrough - hier wird **nichts** verarbeitet.
-++++
-
-Ein `Passthrough`Block verhindert, dass der Inhalt des Blocks vom AsciiDoctor Prozessor
-verarbeitet oder interpretiert wird.
-
 |.Quellcode (einfach)
 [source,go]
 ----
@@ -425,7 +477,7 @@ func main() {
 
 |.Code mit Erklärungen
 [source,java]
---
+----
 import org.harryp.Voldemort; // <1>
 import org.harryp.Harry; // <2>
 
@@ -435,14 +487,14 @@ public class Stakeholder {
 
     // ...
 }
---
+----
 <1> diesen Namen besser vermeiden
 <2> der Knabe mit der Brille
 <3> Zauberstäbe tragen Namen
 
 |.Code mit Erklärungen
 [source,java]
---
+----
 import org.harryp.Voldemort; // <1>
 import org.harryp.Harry; // <2>
 
@@ -452,13 +504,19 @@ public class Stakeholder {
 
     // ...
 }
---
+----
 <1> diesen Namen besser vermeiden
 <2> der Knabe mit der Brille
 <3> Zauberstäbe tragen Namen
 
+|===
 
 
+=== Textkästen (Sidebars)
+Manchmal möchten Sie Inhalte besonders hervorheben
+
+[options="noheader",cols="l,a"]
+|===
 |.Sidebar (Textkasten)
 ****
 hier steht besonders hervorgehobener Text
@@ -470,18 +528,74 @@ hier steht besonders hervorgehobener Text
 
 |===
 
+
 === Tabellen
 
-XXX
-Keine Regel ohne Ausnahme:
-Tabellen sind Blöcke, die mit `|===` eingeleitet werden.
+Tabellen leiten Sie mit `|===`. Sie können in eckigen Klammern Optionen
+zur Darstellung der Tabelle angeben. Spalten trennen Sie mit `|`.
+
+----
+[cols=3,options="header"]
+|===
+|Header-1 | Header-2  <1>
+|c1r1 |c2r1
+|c1r2 |c2r2
+|===
+----
+<1> Die erste Zeile verwendet AsciIDoc als Überschrift (_Header_)
+
+
+[cols=3,options="header"]
+|===
+|Header-1 | Header-2 
+|c1r1 |c2r1
+| c1r2 | c2r2
+|===
+
+Jetzt möchten wir die Spaltenbreite der Tabelle beeinflussen. Eine Möglichkeit
+ist es, die _relative_ Breite einer Spalte in der `cols=` Definition anzugeben.
+Das funktioniert ebenfalls mit prozentualen Angaben.
+
+[cols="1,2,4"]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+
+Diese Tabelle wird mit dem folgenden AsciiDoc erzeugt:
+
+[source,asciidoc]
+----
+[cols="1,2,4"]<1>
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+----
+<1> zweite Spalte hat die doppelte Breite der ersten, die dritte Spalte die vierfache.
+
+Der https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#tables[AsciiDoctor Writers' Guide]
+hält noch eine Reihe weiterer Möglichkeiten
+bereit - Spalten- und Zeilenformatierung, links- und rechtsbündige Spalten
+und so weiter.
 
 
 === Modulare Dokumentation
 
 Im Normalfall möchten Sie gemeinsam mit Ihrem Team an Dokumentation arbeiten,
 d.h. Sie müssen Dokumente modularisieren. In AsciiDoc geht das sehr elegant,
-nämlich durch die einfache `include`-Anweisung.
+nämlich durch die `include`-Anweisung.
 
 Sie können Dokumentation damit in kleine Teile zerlegen, im Team getrennt bearbeiten
 und bei Bedarf an beliebigen Stellen wieder einfügen.
@@ -491,6 +605,28 @@ Schematisch sehen Sie das in Abbildung <<abb-modularisierung>>.
 [[abb-modularisierung]]
 .Modularisierung mit AsciiDoc - schematisch:
 image::modularisierung-uebersicht.png[]
+
+Falls Sie etwa die Architektur eines Systems mit Hilfe des https://arc42.org[arc42 Templates]
+pragmatisch dokumentieren möchten, so können Sie die einzelnen Sektionen von arc42
+in jeweils einzelnen Dateien speichern und flexibel aus einem Master-Dokument inkludieren,
+ganz ohne Redundanz.
+
+Für umfassende Dokumentation können Sie Teile der modularisierten Dokumentation sogar
+problemlos an mehreren Stellen verwenden - wie Abbildung <<abb-wiederverwendung>> zeigt.
+
+Wir nutzen das für so genannten Architecture Decision Records (ADRs),
+mit deren Hilfe wir Implementierungs- oder Architekturentscheidungen zuerst im Team
+diskutieren (und sie in der Entwicklungsdokumentation informell als eine
+  AsciiDoc-Datei festhalten). Stellt
+sich später heraus, dass sie besondere Relevanz in der Architektur besitzen, so können
+wir diese Datei problemlos an passender Stelle in unserer Dokumentation inkludieren.
+
+
+
+
+[[abb-wiederverwendung]]
+.Teile von Dokumentation wiederverwenden
+image::venom-doc-architecture.png[]
 
 
 == Fazit
