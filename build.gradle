@@ -14,8 +14,7 @@ asciidoctor {
       include "Part-1-Intro.adoc"
    }
    requires = ['asciidoctor-diagram']
-   attributes = [
-   ]
+   
 }
 
 
