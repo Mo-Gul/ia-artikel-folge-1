@@ -628,16 +628,17 @@ image::venom-doc-architecture.png[]
 
 == Ausgabeformat generieren
 
+IMPORTANT: fehlt noch
+
 // wir sollten noch ein paar (kurze) Worte zum erzeugen von Ausgabeformaten
 // schreiben - wie das zB mit gradle oder per Kommandozeile geht,
 // und dass man diesen "Doku-Build" daher auch in den "Source-Build"
 // integrieren kann. Über Testen von Doku können wir ja in Folge 2 schreiben,
 // oder das auf das Booklet und die Website verschieben.
 
-[Note]
-****
-Dokumentation mit (UML-)Modellierungstools?
 
+.Dokumentation mit (UML-)Modellierungstools?
+****
 Werkzeuge wie Enterprise-Architect(TM), VisualParadigm(TM) und andere
 unterstützen bei Erstellung von UML-Diagrammen. Für textuelle oder tabellarische
 Dokumentation halten wir diese Tools für wenig geeignet, außerdem liegt die
@@ -670,5 +671,7 @@ In diesem Sinne viel Erfolg mit Docs-as-Code.
 
 
 == Quellen und Links
+
+NOTE: fehlt noch
 
 // @RDM: sollen wir da noch welche aufnehmen?
