@@ -102,11 +102,6 @@ Dokumentation für ein Softwaresystem zusammengeführt haben.
 .Eine Doku-Website
 image::hsc-aim42-site-screenshot.png[]
 
-// Anmerkung (GS): Einen live-screenshot in einen Artikel/Buch,
-// ohne dass ein Mensch den kontrolliert,
-// ergibt in meinen Augen überhaupt keinen Sinn... Nur Risiko und Techno-Spielerei...
-// RDM: sehe ich mittlerweile genauso, aber ein automatisierter Screenshot aus einem Test heraus macht IMHO weiterhin Sinn...
-
 In der Navigationsleiste der <<hsc-homepage>> finden Sie drei typische Arten von
 Dokumentation, nämlich "User-Guide" (Benutzungsanleitung o.ä.), "Development Guide"
 (detaillierte Informationen für das Entwicklungsteam) sowie die Architekturdokumentation,
@@ -131,22 +126,24 @@ Lassen Sie uns Schritt für Schritt starten:
 
 === Dokumentation als "plain text"
 
-Der Schlüssel zum Docs-as-Code Ansatz ist die Verwendung eines "plain text" formats zur Dokumentation anstelle eines binärformats einer typischen Textverarbeitung.
+Der Schlüssel zum Docs-as-Code Ansatz ist die Verwendung eines "plain text" Formats
+anstelle der Binärformate typischer Textverarbeitungen oder Office-Anwendungen.
 Nur so können Sie Ihre Dokumentation tatsächlich wie Code behandeln und verwalten.
 
 Nutzen Sie das das leichtgewichtige Markup-Format
 Asciidoc footnote:[https://de.wikipedia.org/wiki/AsciiDoc] als Grundlage,
 seit vielen Jahren bewährt. Im Gegensatz zum ebenfalls weit verbreiteten
-https://daringfireball.net/projects/markdown/[Markdown] handelt sich bei AsciiDoc um einen wirklichen Standard,
+https://daringfireball.net/projects/markdown/[Markdown] handelt sich bei
+AsciiDoc um einen wirklichen Standard,
 ohne Fragmentierung durch unterschiedliche Dialekte
 footnote:[Markdown wurde von John Gruber ursprünglich als minimalistisches Format definiert,
 Erweiterungen für Tabellen, Modularisierung, Styling etc. haben unterschiedliche
 Dialekte auf unterschiedliche Art realisiert. Texte in solchen Dialekten sind
 in der Regel nicht 1:1 kompatibel mit anderen Dialekten.].
 AsciiDoc ist sowohl einfach als auch funktional mächtig
-footnote:[Der Ausdruck der detaillierten AsciiDoc Benutzerdokumentation würde 274 Druckseiten füllen.], und erfüllt
-damit sämtliche oben genannten  Anforderungen an Dokumentation.
-Bei Bedarf können Sie sogar Bücher damit schreiben.).
+footnote:[Der Ausdruck der detaillierten AsciiDoc Benutzerdokumentation würde 274 Druckseiten füllen.],
+Sie können damit alle Arten von Dokumentation erstellen,
+bei Bedarf sogar Bücher damit schreiben.
 
 .Asciidoctor-Logo
 image:asciidoc-logo.svg[]
@@ -629,17 +626,49 @@ wir diese Datei problemlos an passender Stelle in unserer Dokumentation inkludie
 image::venom-doc-architecture.png[]
 
 
+== Ausgabeformat generieren
+
+// wir sollten noch ein paar (kurze) Worte zum erzeugen von Ausgabeformaten
+// schreiben - wie das zB mit gradle oder per Kommandozeile geht,
+// und dass man diesen "Doku-Build" daher auch in den "Source-Build"
+// integrieren kann. Über Testen von Doku können wir ja in Folge 2 schreiben,
+// oder das auf das Booklet und die Website verschieben.
+
+[Note]
+****
+Dokumentation mit (UML-)Modellierungstools?
+
+Werkzeuge wie Enterprise-Architect(TM), VisualParadigm(TM) und andere
+unterstützen bei Erstellung von UML-Diagrammen. Für textuelle oder tabellarische
+Dokumentation halten wir diese Tools für wenig geeignet, außerdem liegt die
+Einstiegshürde für Entwicklungsteams aufgrund der hohen Komplexität dieser Tools
+ungemein hoch.
+
+Einige UML-Tools besitzen leistungsfähige Schnittstellen zur Automatisierung,
+so dass sie mit Docs-as-Code Ansätzen gut zusammen arbeiten können.
+
+// @RDM -> einen Verweis auf Dein EAP-Extraktions-Skript??
+****
+
 == Fazit
+Sie können technische Dokumentation auf Basis von "plain-text" erstellen,
+Grafiken inkludieren und alles mit Hilfe Ihrer Versionsverwaltung synchron mit
+dem Quellcode Ihrer Systeme pflegen. Teamfähigkeit (review, branch, merge etc.)
+bekommen Sie damit fast geschenkt, die Integration in den Buildprozess ebenso.
+
+Die Einstiegshürde zur Erstellung wirkungsvoller Dokumentation sinkt bei
+Entwicklungsteams damit beträchtlich - damit steigt die Chance, dass langfristig
+relevante Informationen auch wirklich dokumentiert werden, und nicht in den Köpfen
+von Entwicklungsteams dem Vergessen anheim fallen.
+
+In der zweiten Folge dieses Artikels zeigen wir Ihnen die frei verfügbare
+Werkzeugkette docToolchain, mit deren Hilfe Sie
+Office-Dokumente integrieren, Word(TM) und Confluence(TM) Formate generieren und noch
+andere spannende Dinge erledigen können.
+
+In diesem Sinne viel Erfolg mit Docs-as-Code.
 
 
+== Quellen und Links
 
-=== Überschriften
-Textformatierungen, Aufzählungen (Listen)
-
-* kennen Sie von Wikis oder Markdown:
-* Formate wie *fett*, _kursiv_
-* Auch Links sind einfach: http://javamagazin.de[JavaMagazin].
-
-.Code-Highlighting
-[source,groovy]
-10.times { println "Hello, AsciiDoc!" }
+// @RDM: sollen wir da noch welche aufnehmen?
