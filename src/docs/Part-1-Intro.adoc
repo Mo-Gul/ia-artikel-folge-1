@@ -150,7 +150,7 @@ image:asciidoc-logo.svg[]
 
 Für AsciiDoc gibt es einen (Open-Source, d.h. frei verfügbaren) Konverter
 namens _Asciidoctor_ footnote:[https://asciidoctor.org/], der AsciiDoc in verschiedene
-Zielformate (etwa Html oder DocBook) konvertieren kann.
+Zielformate (etwa Html oder DocBook) konvertieren kann und auf verschiedenen Plattformen läuft.
 
 In <<dac-uebersicht>> finden Sie eine Übersicht:
 
@@ -161,7 +161,7 @@ Diagramme.
 beispielsweise HTML oder pdf. In Folge 2 dieses Artikels zeigen wir Ihnen, wie Sie sehr einfach
 auch Confluence, docx oder andere Formate erzeugen können.
 3. Andere Stakeholder arbeiten weiterhin in ihren etablierten Werkzeugen, etwa Word. Deren
-Dokumentation liegt in Office-Formaten, etwa pptx oder xlsx vor.
+Dokumentation liegt in Office-Formaten, etwa docsx, pptx oder xlsx vor.
 4. Die docToolchain (genauer erklärt in Folge 2) integriert auch solche Formate.
 
 [[dac-uebersicht]]
@@ -174,14 +174,14 @@ schreiben mit AsciiDoc wirklich einfach geht:
 ****
 Falls Sie unsere Beispiele direkt selbt nachvollziehen möchten, finden Sie den
 Quellcode in unserem öffentlichen
-https://github.com/doctoolchain/XXXX[Github-Repository].
+https://github.com/doctoolchain/ia-artikel[Github-Repository].
 
 ****
 
 === Überschriften
 
 Erzeugen Sie Überschriften einfach durch ein vorangestelltes `=`,
-wobei die Überschrifteneben der Anzahl der `=`-Zeichen entspricht.
+wobei die Überschriftenebene der Anzahl der `=`-Zeichen entspricht.
 Ein einzelnes `=` ist dem Buchtitel oder Dokumentnamen vorbehalten,
 so dass ein normaler Text mit `==` als erste Überschriftenebene beginnt.
 
@@ -214,21 +214,21 @@ so beenden Sie die Zeile mit einem Leerzeichen und `+`
 Zeile 1
 Zeile 2
 Zeile 3
+
+neuer Absatz mit +
+erzwungenem Umbruch
 |
 Zeile 1
 Zeile 2
 Zeile 3
 
-|
-neuer Absatz mit +
-erzwungenem Umbruch
-|
 neuer Absatz mit +
 erzwungenem Umbruch
 |===
 
 === Textformate
-Text können Sie einfach in den "üblichen" Formaten darstellen. Darüber hinaus
+
+Text können Sie in den "üblichen" Formaten darstellen. Darüber hinaus
 bietet AsciiDoc die Möglichkeit, beliebige css-Styles anzuwenden, aber das sprengt
 den Rahmen dieser kompakten Einführung.
 
@@ -254,19 +254,19 @@ den Rahmen dieser kompakten Einführung.
 
 
 === Listen
+
 Sowohl Listen wie (nummerierte) Aufzählungen funktionieren mit AsciiDoc intuitiv
 
 .Listen
 [options="noheader",cols="l,a"]
 |===
-| Einfache Liste (Vor dem ersten Punkt muss eine Leerzeile stehen)
+| Einfache Liste (vor dem ersten Punkt muss eine Leerzeile stehen)
 
 * Ein Punkt
 * Noch ein Punkt
 ** Unterpunkt a
 ** Unterpunkt b
-
-| Einfache Liste
+| Einfache Liste (vor dem ersten Punkt muss eine Leerzeile stehen)
 
 * Ein Punkt
 * Noch ein Punkt
@@ -297,7 +297,7 @@ so hängen Sie diesen in eckigen Klammern einfach dran, und fertig.
 
 Relative Verweise zwischen mehreren Dokumenten wie z.B. `docs/tutorial.html` kann
 Asciidoctor aufgrund der fehlenden Protokollbezeichnung nicht automatisch erkennen.
-Setzen Sie einfach ein `link:` davor und leere Klammern `[]`dahinter und alles
+Setzen Sie einfach ein `link:` davor und leere Klammern `[]` dahinter und alles
 ist wie gehabt.
 
 [[tabelle-links]]
@@ -319,7 +319,7 @@ ist wie gehabt.
 |===
 
 AsciiDoctor unterstützt auch Querverweise innerhalb des Dokuments.
-Mit doppelten eckigen Klammern `\[[ein-anker]]` setzen Sie Anker im Dokument gesetzt, auf die Sie mit spitzen Klammern `\<<ein-anker>>` verweisen.
+Mit doppelten eckigen Klammern `\[[ein-anker]]` setzen Sie Anker im Dokument, auf die Sie mit spitzen Klammern `\<<ein-anker>>` verweisen.
 
 Wie Asciidoctor die Referenz benennt steuern Sie über das Attribut `:xrefstyle:`.
 
@@ -359,8 +359,6 @@ Bilder und Diagramme können Sie ähnlich wie Querverweise einfügen - stellen
 Sie einfach das Wort "image" voran: `image:<name-des-bildes>[]`. In der folgenden
 Tabelle zeigen wir Ihnen gleich noch die Möglichkeiten der Skalierung von Diagrammen.
 
-
-
 .Bilder
 [options="noheader",cols="l,a"]
 |===
@@ -383,17 +381,19 @@ klappen auch.
 
 |===
 
+//INFO: Unterschied zwischen `:` und `::`
+
 Diagramme und Bilder stellen wichtige Elemente technischer Dokumentation dar,
 weil sie Zusammenhänge aufzeigen und Überblick ermöglichen. Oftmals erstellen Sie
-Diagramme in einem speziell dafür vorgesehenen Werkzeug
+Diagramme in einem speziell dafür vorgesehenen Werkzeug.
 Sie sind aber immer nur die Darstellung der Daten einer Quelle.
 Binden Sie nur die Bilder in Ihre Dokumentation ein, so geht automatisch der enge Bezug zur Quelle verloren.
 
-Für UML-Diagramme schlagen wir Ihnen eine elegante Lösung namens PlantUML vor:
+Für einfache UML-Diagramme schlagen wir Ihnen eine elegante Lösung namens PlantUML vor:
 Damit beschreiben Sie Ihr Diagramm textuell und überlassen es Asciidoctor,
 das Diagramm in ein Bild zu wandeln. Unter der Haube nutzt AsciiDoctor dafür
-den Open Source Konverter, der die textuelle Syntax von PlantUML in Grafikformate
-wie jpg oder png verwandelt.
+den Open Source Konverter PlantUML, der die textuelle Syntax in Grafikformate
+wie svg oder png verwandelt (wir empfehlen aus Erfahrung png).
 
 [[plantuml]]
 .PlantUML
@@ -420,6 +420,9 @@ Benutzer -> Browser
 Benutzer <-- Browser
 ....
 |===
+
+NOTE: Asciidoctor unterstützt PlantUML über das _Diagram_-Plugin,
+welches noch viele weitere textuelle Diagrammtypen unterstützt.
 
 === Quellcode
 
@@ -508,9 +511,17 @@ public class Stakeholder {
 
 |===
 
+Beachten Sie bei der Verwendung der sogenannten Callouts `// <1>`,
+daß die Kommentarzeichen im fertigen Dokument verschwinden
+und somit die Callouts beim Kopieren des Textes in eigenen Code manuell entfehrnt werden müssen.
+Sie sollten also bei Beispielen eher sparsam eingesetzt werden.
 
 === Textkästen (Sidebars)
-Manchmal möchten Sie Inhalte besonders hervorheben
+
+Manchmal möchten Sie Inhalte besonders hervorheben.
+Gerade bei technische Dokumentation bietet es sich an,
+den einen oder anderen Sachverhalt ausserhalb des Fliesstextes zu erklären.
+In einem solchen Fall sollten Sie die Syntax für eine Sidebar verwenden.
 
 [options="noheader",cols="l,a"]
 |===
@@ -532,17 +543,17 @@ Tabellen leiten Sie mit `|===`. Sie können in eckigen Klammern Optionen
 zur Darstellung der Tabelle angeben. Spalten trennen Sie mit `|`.
 
 ----
-[cols=3,options="header"]
+[options="header"]
 |===
 |Header-1 | Header-2  <1>
 |c1r1 |c2r1
 |c1r2 |c2r2
 |===
 ----
-<1> Die erste Zeile verwendet AsciIDoc als Überschrift (_Header_)
+<1> Die erste Zeile verwendet AsciiDoc als Überschrift (_Header_)
 
 
-[cols=3,options="header"]
+[options="header"]
 |===
 |Header-1 | Header-2 
 |c1r1 |c2r1
@@ -582,6 +593,10 @@ Diese Tabelle wird mit dem folgenden AsciiDoc erzeugt:
 ----
 <1> zweite Spalte hat die doppelte Breite der ersten, die dritte Spalte die vierfache.
 
+Beachten Sie, dass durch die Definition der Anzahl der Spalten in den Optionen,
+die Zellen einfach untereinander definiert werden können.
+Das sorgt für eine bessere Übersicht und leitere Bearbeitung der Tabelle.
+
 Der https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#tables[AsciiDoctor Writers' Guide]
 hält noch eine Reihe weiterer Möglichkeiten
 bereit - Spalten- und Zeilenformatierung, links- und rechtsbündige Spalten
@@ -597,10 +612,10 @@ nämlich durch die `include`-Anweisung.
 Sie können Dokumentation damit in kleine Teile zerlegen, im Team getrennt bearbeiten
 und bei Bedarf an beliebigen Stellen wieder einfügen.
 
-Schematisch sehen Sie das in Abbildung <<abb-modularisierung>>.
+Schematisch sehen Sie das in <<abb-modularisierung>>.
 
 [[abb-modularisierung]]
-.Modularisierung mit AsciiDoc - schematisch:
+.Modularisierung mit AsciiDoc - schematisch
 image::modularisierung-uebersicht.png[]
 
 Falls Sie etwa die Architektur eines Systems mit Hilfe des https://arc42.org[arc42 Templates]
@@ -609,7 +624,7 @@ in jeweils einzelnen Dateien speichern und flexibel aus einem Master-Dokument in
 ganz ohne Redundanz.
 
 Für umfassende Dokumentation können Sie Teile der modularisierten Dokumentation sogar
-problemlos an mehreren Stellen verwenden - wie Abbildung <<abb-wiederverwendung>> zeigt.
+problemlos an mehreren Stellen verwenden - wie <<abb-wiederverwendung>> zeigt.
 
 Wir nutzen das für so genannten Architecture Decision Records (ADRs),
 mit deren Hilfe wir Implementierungs- oder Architekturentscheidungen zuerst im Team
@@ -628,6 +643,35 @@ image::venom-doc-architecture.png[]
 
 == Ausgabeformat generieren
 
+Das mit AsciiDoc am häufigsten verwendete Ausgabeformat ist sicherlich HTML.
+
+Wenn Sie sich AsciiDoc und Asciidoctor einfach mal ansehen wollen,
+dann bietet sich https://asciidoclive.com/[asciidoclive.com] an.
+Auf dieser Website können sie direkt AsciiDoc in einem Editor (links) eingeben
+und sehen das erzeugte HTML auf der rechten Seite.
+In diesem Fall kommt die JavaScript-Version von Asciidoctor zum Einsatz.
+
+Wenn Sie über die Kommandozeile die Konvertierung vornehmen wollen, dann gibt es z.B. `asciidoctorj`, welches Sie am einfachsten über https://sdkman.io/[sdkman.io] installieren.
+
+Zur Umsetzung des Docs-as-Code Ansatzes bauen Sie die Konvertierung direkt in Ihren Software-Build ein und bauen Ihre Dokumentation von nun an genauso wie Ihre Software.
+Dazu exitieren Plugins für z.B. Gradle und Maven.
+Mit der Standard-Konfiguration reicht in Gradle sogar ein Einzeiler, nämlich die Definition des Plugins:
+
+[source, groovy]
+----
+plugins { id "org.asciidoctor.convert" version "1.5.3" }
+----
+
+In unserem https://github.com/doctoolchain/ia-artikel[Github-Repository] finden Sie ein etwas erweitertes Beispiel, welches schon plantUML unterstützt.
+
+Übrigens - wir verwenden sehr gerne Gradle für den Docs-as-Code Ansatz.
+Sollte Ihr Projekt ein anderes Build-Tool verwenden, so lassen sich die Tools auch gut mischen.
+Einem Bau der Software mit Maven und dem Bau der Dokumentation mit Gradle spricht nicht viel entgegen.
+
+Sollte Ihnen HTML als Ausgabeformat nicht reichen, so untestüzt Asciidoctor direkt noch docBook
+und über ein Plugin PDF.
+Wie sie weitere Ausgabeformate erzeugen können, zeigen wir Ihnen dann im zweiten Teil.
+
 IMPORTANT: fehlt noch
 
 // wir sollten noch ein paar (kurze) Worte zum erzeugen von Ausgabeformaten
@@ -636,8 +680,9 @@ IMPORTANT: fehlt noch
 // integrieren kann. Über Testen von Doku können wir ja in Folge 2 schreiben,
 // oder das auf das Booklet und die Website verschieben.
 
+// passt das so?
 
-.Dokumentation mit (UML-)Modellierungstools?
+.Dokumentation mit (UML-) Modellierungstools?
 ****
 Werkzeuge wie Enterprise-Architect(TM), VisualParadigm(TM) und andere
 unterstützen bei Erstellung von UML-Diagrammen. Für textuelle oder tabellarische
@@ -645,13 +690,16 @@ Dokumentation halten wir diese Tools für wenig geeignet, außerdem liegt die
 Einstiegshürde für Entwicklungsteams aufgrund der hohen Komplexität dieser Tools
 ungemein hoch.
 
-Einige UML-Tools besitzen leistungsfähige Schnittstellen zur Automatisierung,
+Einige UML-Tools besitzen jedoch leistungsfähige Schnittstellen zur Automatisierung,
 so dass sie mit Docs-as-Code Ansätzen gut zusammen arbeiten können.
+Lesen Sie dazu mehr im zweiten Teil dieses Artikels
 
 // @RDM -> einen Verweis auf Dein EAP-Extraktions-Skript??
+// @GS -> zweiter Teil
 ****
 
 == Fazit
+
 Sie können technische Dokumentation auf Basis von "plain-text" erstellen,
 Grafiken inkludieren und alles mit Hilfe Ihrer Versionsverwaltung synchron mit
 dem Quellcode Ihrer Systeme pflegen. Teamfähigkeit (review, branch, merge etc.)
@@ -662,10 +710,14 @@ Entwicklungsteams damit beträchtlich - damit steigt die Chance, dass langfristi
 relevante Informationen auch wirklich dokumentiert werden, und nicht in den Köpfen
 von Entwicklungsteams dem Vergessen anheim fallen.
 
-In der zweiten Folge dieses Artikels zeigen wir Ihnen die frei verfügbare
-Werkzeugkette docToolchain, mit deren Hilfe Sie
+Durch den Ansatz stellen Sie weiterhin sicher, daß jeder weiss, wo die Dokumentation liegt:
+beim Code - da wo wie hingehört.
+
+Mit dem in diesem Artiekl beschriebenen Ansatz sind Sie schon voll gerüstet für Docs-as-Code.
+In der zweiten Folge dieses Artikels zeigen wir Ihnen, wie noch einen Schritt weiter gehen
+und mit Hilfe der frei verfügbaren Werkzeugkette docToolchain,
 Office-Dokumente integrieren, Word(TM) und Confluence(TM) Formate generieren und noch
-andere spannende Dinge erledigen können.
+andere spannende Dinge erledigen können. Eben das, was Sie auch mit Code machen würden: extrahieren, generieren, transformieren, testen etc.
 
 In diesem Sinne viel Erfolg mit Docs-as-Code.
 
@@ -674,4 +726,5 @@ In diesem Sinne viel Erfolg mit Docs-as-Code.
 
 NOTE: fehlt noch
 
-// @RDM: sollen wir da noch welche aufnehmen?
+NOTE: @GS brauchen wir die? Wir sind online, die meisten Quellen sind verlinkt, oder?
+
