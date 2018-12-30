@@ -6,7 +6,7 @@ include::config.adoc[]
 
 Eine grossangelegte Umfragefootnote:[https://opensourcesurvey.org/2017/]
 zu "Open Source" zeigt, dass unvollständige oder verwirrende Dokumentation
-zu den Hauptproblem freier Software zählt. Das gilt neben Anwendungungsdokumentation
+zu den Hauptproblemen freier Software zählt. Das gilt neben Anwendungungsdokumentation
 insbesondere auch für technische Dokumentation, etwa von Softwarearchitektur.
 
 Diese Aussage können wir sicherlich
@@ -40,7 +40,9 @@ Dann verschwindet für Entwicklungsteams das erste der oben genannten Probleme (
 Wir zeigen Ihnen genau diesen Ansatz: Integrieren Sie das bisher ungeliebten
 Thema _Dokumentation_ mit Hilfe robuster Open-Source Werkzeuge einfach und effektiv
 in Ihre Softwareentwicklung, mit Hilfe Ihres favorisierten Texteditors.
-_Mergen_ und _branchen_ Sie Dokumentation genau wie Quellcode. Statt binäre Dokumente
+_Mergen_ und _branchen_ Sie Dokumentation genau wie Quellcode.
+// forken und reviewen?
+Statt binäre Dokumente
 per Email zu versenden und Versionsnummern und Namenskürzel an die Dateinamen zu hängen,
 checken Sie Ihre Dokumentation per commit und push ein, mit derselben Branching-Strategie
 mit der Sie auch Ihre Software entwickeln.
@@ -79,13 +81,14 @@ und Quellcode.
 2. In der zweiten Folge lernen Sie
 https://doctoolchain.github.io/docToolchain/[docToolchain] kennen, die
 OpenSource Lösung zur Unterstützung des Docs-As-Code Ansatzes.
- Sie lernen die Integration von Office-Dokumenten, Confluence(tm) und Enterprise-Architect(TM)  in ihre Dokumentation kennen.
+ Sie lernen die Integration von Office-Dokumenten, Confluence(TM) und Enterprise-Architect(TM)  in ihre Dokumentation kennen.
 3. In der dritten Folge bringen wir _alles unter einem Dach_ unter:
 Sie erfahren, wie Sie die verschiedenen Arten von Dokumentation (etwa Architektur- und Entwicklungsdokumentation sowie User-Manuals, Tutorials
  etc) im Rahmen einer integrativen Website zusammenführen können.
 
 Sämtlichen Quellcode und Beispiele aller drei Teile finden Sie online
 in einem öffentlichen (git-) Repository.
+//TODO: repository verlinken
 
 Um Ihnen das manchmal ungeliebte Thema _Dokumentation_ etwas schmackhaft zu machen, möchten wir Ihnen einen
 Ausblick auf das mögliche Endergebnis geben: Eine Website
@@ -99,12 +102,7 @@ Dokumentation für ein Softwaresystem zusammengeführt haben.
 .Eine Doku-Website
 image::hsc-aim42-site-screenshot.png[]
 
-// Anmerkung (GS): Einen live-screenshot in einen Artikel/Buch,
-// ohne dass ein Mensch den kontrolliert,
-// ergibt in meinen Augen überhaupt keinen Sinn... Nur Risiko und Techno-Spielerei...
-
-
-In der Navigationsleiste der Abbildung 1 finden Sie drei typische Arten von
+In der Navigationsleiste der <<hsc-homepage>> finden Sie drei typische Arten von
 Dokumentation, nämlich "User-Guide" (Benutzungsanleitung o.ä.), "Development Guide"
 (detaillierte Informationen für das Entwicklungsteam) sowie die Architekturdokumentation,
 beispielsweise auf Basis des https://arc42.org[arc42 Templates].
@@ -124,31 +122,37 @@ sowie Tabellen, Diagramme und Querverweise. Uns helfen oft Codebeispiele
 (am besten inkludiert aus dem Original-Code-Repository), und am besten
 soll unsere Dokumentation modular aufgebaut und flexibel kombiniert werden können.
 
-Lassen Sie und Schritt für Schritt starten:
+Lassen Sie uns Schritt für Schritt starten:
 
 === Dokumentation als "plain text"
+
+Der Schlüssel zum Docs-as-Code Ansatz ist die Verwendung eines "plain text" Formats
+anstelle der Binärformate typischer Textverarbeitungen oder Office-Anwendungen.
+Nur so können Sie Ihre Dokumentation tatsächlich wie Code behandeln und verwalten.
 
 Nutzen Sie das das leichtgewichtige Markup-Format
 Asciidoc footnote:[https://de.wikipedia.org/wiki/AsciiDoc] als Grundlage,
 seit vielen Jahren bewährt. Im Gegensatz zum ebenfalls weit verbreiteten
-https://daringfireball.net/projects/markdown/[Markdown] handelt sich bei AsciiDoc um einen wirklichen Standard,
+https://daringfireball.net/projects/markdown/[Markdown] handelt sich bei
+AsciiDoc um einen wirklichen Standard,
 ohne Fragmentierung durch unterschiedliche Dialekte
 footnote:[Markdown wurde von John Gruber ursprünglich als minimalistisches Format definiert,
 Erweiterungen für Tabellen, Modularisierung, Styling etc. haben unterschiedliche
 Dialekte auf unterschiedliche Art realisiert. Texte in solchen Dialekten sind
-in der Regel nicht 1:1 kompatibel mit anderen Dialekten.]
+in der Regel nicht 1:1 kompatibel mit anderen Dialekten.].
 AsciiDoc ist sowohl einfach als auch funktional mächtig
-footnote:[Der Ausdruck der detaillierten AsciiDoc Benutzerdokumentation würde 274 Druckseiten füllen.], und erfüllt
-damit sämtliche oben genannten  Anforderungen an Dokumentation.
-Bei Bedarf können Sie sogar Bücher damit schreiben.).
+footnote:[Der Ausdruck der detaillierten AsciiDoc Benutzerdokumentation würde 274 Druckseiten füllen.],
+Sie können damit alle Arten von Dokumentation erstellen,
+bei Bedarf sogar Bücher damit schreiben.
 
+.Asciidoctor-Logo
 image:asciidoc-logo.svg[]
 
 Für AsciiDoc gibt es einen (Open-Source, d.h. frei verfügbaren) Konverter
 namens _Asciidoctor_ footnote:[https://asciidoctor.org/], der AsciiDoc in verschiedene
 Zielformate (etwa Html oder DocBook) konvertieren kann.
 
-In Abbildung <<dac-uebersicht>> finden Sie eine Übersicht:
+In <<dac-uebersicht>> finden Sie eine Übersicht:
 
 1. Verschiedene Beteiligte, etwa das Entwicklungsteam oder die ArchitektInnen, erstellen
 jeweils Teile der Dokumentation, sowohl in Textform als AsciiDoc-Dateien, als auch
@@ -157,7 +161,7 @@ Diagramme.
 beispielsweise HTML oder pdf. In Folge 2 dieses Artikels zeigen wir Ihnen, wie Sie sehr einfach
 auch Confluence, docx oder andere Formate erzeugen können.
 3. Andere Stakeholder arbeiten weiterhin in ihren etablierten Werkzeugen, etwa Word. Deren
-Dokumentation liegt in Office-Formaten, etwa docx oder xlsx vor.
+Dokumentation liegt in Office-Formaten, etwa pptx oder xlsx vor.
 4. Die docToolchain (genauer erklärt in Folge 2) integriert auch solche Formate.
 
 [[dac-uebersicht]]
@@ -622,17 +626,52 @@ wir diese Datei problemlos an passender Stelle in unserer Dokumentation inkludie
 image::venom-doc-architecture.png[]
 
 
+== Ausgabeformat generieren
+
+IMPORTANT: fehlt noch
+
+// wir sollten noch ein paar (kurze) Worte zum erzeugen von Ausgabeformaten
+// schreiben - wie das zB mit gradle oder per Kommandozeile geht,
+// und dass man diesen "Doku-Build" daher auch in den "Source-Build"
+// integrieren kann. Über Testen von Doku können wir ja in Folge 2 schreiben,
+// oder das auf das Booklet und die Website verschieben.
+
+
+.Dokumentation mit (UML-)Modellierungstools?
+****
+Werkzeuge wie Enterprise-Architect(TM), VisualParadigm(TM) und andere
+unterstützen bei Erstellung von UML-Diagrammen. Für textuelle oder tabellarische
+Dokumentation halten wir diese Tools für wenig geeignet, außerdem liegt die
+Einstiegshürde für Entwicklungsteams aufgrund der hohen Komplexität dieser Tools
+ungemein hoch.
+
+Einige UML-Tools besitzen leistungsfähige Schnittstellen zur Automatisierung,
+so dass sie mit Docs-as-Code Ansätzen gut zusammen arbeiten können.
+
+// @RDM -> einen Verweis auf Dein EAP-Extraktions-Skript??
+****
+
 == Fazit
+Sie können technische Dokumentation auf Basis von "plain-text" erstellen,
+Grafiken inkludieren und alles mit Hilfe Ihrer Versionsverwaltung synchron mit
+dem Quellcode Ihrer Systeme pflegen. Teamfähigkeit (review, branch, merge etc.)
+bekommen Sie damit fast geschenkt, die Integration in den Buildprozess ebenso.
+
+Die Einstiegshürde zur Erstellung wirkungsvoller Dokumentation sinkt bei
+Entwicklungsteams damit beträchtlich - damit steigt die Chance, dass langfristig
+relevante Informationen auch wirklich dokumentiert werden, und nicht in den Köpfen
+von Entwicklungsteams dem Vergessen anheim fallen.
+
+In der zweiten Folge dieses Artikels zeigen wir Ihnen die frei verfügbare
+Werkzeugkette docToolchain, mit deren Hilfe Sie
+Office-Dokumente integrieren, Word(TM) und Confluence(TM) Formate generieren und noch
+andere spannende Dinge erledigen können.
+
+In diesem Sinne viel Erfolg mit Docs-as-Code.
 
 
+== Quellen und Links
 
-=== Überschriften
-Textformatierungen, Aufzählungen (Listen)
+NOTE: fehlt noch
 
-* kennen Sie von Wikis oder Markdown:
-* Formate wie *fett*, _kursiv_
-* Auch Links sind einfach: http://javamagazin.de[JavaMagazin].
-
-.Code-Highlighting
-[source,groovy]
-10.times { println "Hello, AsciiDoc!" }
+// @RDM: sollen wir da noch welche aufnehmen?
