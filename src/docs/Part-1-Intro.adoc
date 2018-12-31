@@ -48,7 +48,7 @@ checken Sie Ihre Dokumentation per commit und push ein, mit derselben Branching-
 mit der Sie auch Ihre Software entwickeln.
 
 Damit können Sie ein breites Spektrum technischer Dokumentation von Software abdecken,
-beispielsweise Entwicklungs-, Architektur- oder auch Betriebsdokumentation.  Wir persönlich
+beispielsweise Entwicklungs-, Architektur- oder auch Betriebsdokumentation. Wir persönlich
 haben auch Anforderungs- und Userdokumentation auf diese Weise erstellt.
 
 Für diesen Ansatz hat sich im Netz der Begriff
@@ -161,7 +161,7 @@ Diagramme.
 beispielsweise HTML oder pdf. In Folge 2 dieses Artikels zeigen wir Ihnen, wie Sie sehr einfach
 auch Confluence, docx oder andere Formate erzeugen können.
 3. Andere Stakeholder arbeiten weiterhin in ihren etablierten Werkzeugen, etwa Word. Deren
-Dokumentation liegt in Office-Formaten, etwa docsx, pptx oder xlsx vor.
+Dokumentation liegt in Office-Formaten, etwa docx, pptx oder xlsx vor.
 4. Die docToolchain (genauer erklärt in Folge 2) integriert auch solche Formate.
 
 [[dac-uebersicht]]
@@ -389,7 +389,7 @@ Diagramme in einem speziell dafür vorgesehenen Werkzeug.
 Sie sind aber immer nur die Darstellung der Daten einer Quelle.
 Binden Sie nur die Bilder in Ihre Dokumentation ein, so geht automatisch der enge Bezug zur Quelle verloren.
 
-Für einfache UML-Diagramme schlagen wir Ihnen eine elegante Lösung namens PlantUML vor:
+Für einfache UML-Diagramme schlagen wir Ihnen eine elegante Lösung namens http://plantuml.com[PlantUML] vor:
 Damit beschreiben Sie Ihr Diagramm textuell und überlassen es Asciidoctor,
 das Diagramm in ein Bild zu wandeln. Unter der Haube nutzt AsciiDoctor dafür
 den Open Source Konverter PlantUML, der die textuelle Syntax in Grafikformate
@@ -513,15 +513,15 @@ public class Stakeholder {
 
 Beachten Sie bei der Verwendung der sogenannten Callouts `// <1>`,
 daß die Kommentarzeichen im fertigen Dokument verschwinden
-und somit die Callouts beim Kopieren des Textes in eigenen Code manuell entfehrnt werden müssen.
-Sie sollten also bei Beispielen eher sparsam eingesetzt werden.
+und somit die Callouts beim Kopieren des Textes in eigenen Code manuell entfernt werden müssen.
+Setzen Sie diese in Beispielen eher sparsam ein.
 
 === Textkästen (Sidebars)
 
 Manchmal möchten Sie Inhalte besonders hervorheben.
-Gerade bei technische Dokumentation bietet es sich an,
+Gerade bei technischer Dokumentation bietet es sich an,
 den einen oder anderen Sachverhalt ausserhalb des Fliesstextes zu erklären.
-In einem solchen Fall sollten Sie die Syntax für eine Sidebar verwenden.
+Verwenden Sie in solchen Fällen eine Sidebar (Textkasten).
 
 [options="noheader",cols="l,a"]
 |===
@@ -593,8 +593,8 @@ Diese Tabelle wird mit dem folgenden AsciiDoc erzeugt:
 ----
 <1> zweite Spalte hat die doppelte Breite der ersten, die dritte Spalte die vierfache.
 
-Beachten Sie, dass durch die Definition der Anzahl der Spalten in den Optionen,
-die Zellen einfach untereinander definiert werden können.
+Beachten Sie, dass Sie durch die Definition der Spaltenzahl in den Optionen,
+die Zellen einfach untereinander schreiben können.
 Das sorgt für eine bessere Übersicht und leitere Bearbeitung der Tabelle.
 
 Der https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#tables[AsciiDoctor Writers' Guide]
@@ -713,18 +713,18 @@ von Entwicklungsteams dem Vergessen anheim fallen.
 Durch den Ansatz stellen Sie weiterhin sicher, daß jeder weiss, wo die Dokumentation liegt:
 beim Code - da wo wie hingehört.
 
-Mit dem in diesem Artiekl beschriebenen Ansatz sind Sie schon voll gerüstet für Docs-as-Code.
+Mit dem in diesem Artikel beschriebenen Ansatz sind Sie schon voll gerüstet für Docs-as-Code.
 In der zweiten Folge dieses Artikels zeigen wir Ihnen, wie noch einen Schritt weiter gehen
 und mit Hilfe der frei verfügbaren Werkzeugkette docToolchain,
 Office-Dokumente integrieren, Word(TM) und Confluence(TM) Formate generieren und noch
 andere spannende Dinge erledigen können. Eben das, was Sie auch mit Code machen würden: extrahieren, generieren, transformieren, testen etc.
 
+Noch mehr Informationen finden Sie in der Zwischenzeit auch auf https://docs-as-co.de[Docs-as-Co.de],
+das fertige Beispiel dieser Artikelserie auf https://hsc.aim42.org/[hsc.aim42.org]
+und das arc42Template zum Durchstarten mit Ihrer eigenen Dokumentation können Sie auf https://arc42.de/[arc42.de] herunterladen.
+
 In diesem Sinne viel Erfolg mit Docs-as-Code.
 
 
-== Quellen und Links
 
-NOTE: fehlt noch
-
-NOTE: @GS brauchen wir die? Wir sind online, die meisten Quellen sind verlinkt, oder?
 
