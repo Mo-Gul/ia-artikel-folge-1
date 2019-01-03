@@ -647,14 +647,15 @@ Das mit AsciiDoc am häufigsten verwendete Ausgabeformat ist sicherlich HTML.
 
 Wenn Sie sich AsciiDoc und Asciidoctor einfach mal ansehen wollen,
 dann bietet sich https://asciidoclive.com/[asciidoclive.com] an.
-Auf dieser Website können sie direkt AsciiDoc in einem Editor (links) eingeben
-und sehen das erzeugte HTML auf der rechten Seite.
-In diesem Fall kommt die JavaScript-Version von Asciidoctor zum Einsatz.
+Auf dieser Website können sie AsciiDoc im Browser auf einer Seite editieren,
+und sehen das unmittelbar daneben das daraus generierte Ergebnis.
+Unter der Haube läuft dort die JavaScript-Version von Asciidoctor.
 
-Wenn Sie über die Kommandozeile die Konvertierung vornehmen wollen, dann gibt es z.B. `asciidoctorj`, welches Sie am einfachsten über https://sdkman.io/[sdkman.io] installieren.
+Wenn Sie die Kommandozeile für die Konvertierung bevorzugen, dann gibt es z.B. `asciidoctorj`, das Sie beispielsweise über https://sdkman.io/[sdkman.io] installieren können.
 
-Zur Umsetzung des Docs-as-Code Ansatzes bauen Sie die Konvertierung direkt in Ihren Software-Build ein und bauen Ihre Dokumentation von nun an genauso wie Ihre Software.
-Dazu exitieren Plugins für z.B. Gradle und Maven.
+Nach den ersten Gehversuchen empfehlen wir Ihnen, die Konvertierung direkt in Ihren Software-Build zu integrieren - und damit Ihre Dokumentation von nun an genauso wie Ihre Software _bauen_ zu lassen (über Möglichkeiten zum Test der Dokumentation schreiben wir in der nächsten Folge dieses Artikels).
+
+Für diese Integration existieren diverse Plugins, beispielsweise für Gradle und Maven.
 Mit der Standard-Konfiguration reicht in Gradle sogar ein Einzeiler, nämlich die Definition des Plugins:
 
 [source, groovy]
@@ -662,25 +663,14 @@ Mit der Standard-Konfiguration reicht in Gradle sogar ein Einzeiler, nämlich di
 plugins { id "org.asciidoctor.convert" version "1.5.3" }
 ----
 
-In unserem https://github.com/doctoolchain/ia-artikel[Github-Repository] finden Sie ein etwas erweitertes Beispiel, welches schon plantUML unterstützt.
+In unserem https://github.com/doctoolchain/ia-artikel[Github-Repository] finden Sie ein etwas erweitertes Beispiel, das schon plantUML unterstützt.
 
-Übrigens - wir verwenden sehr gerne Gradle für den Docs-as-Code Ansatz.
-Sollte Ihr Projekt ein anderes Build-Tool verwenden, so lassen sich die Tools auch gut mischen.
-Einem Bau der Software mit Maven und dem Bau der Dokumentation mit Gradle spricht nicht viel entgegen.
+Persönlich verwenden wir https://gradle.org[Gradle] am liebsten für unsere Docs-as-Code Einsätze.
 
-Sollte Ihnen HTML als Ausgabeformat nicht reichen, so untestüzt Asciidoctor direkt noch docBook
-und über ein Plugin PDF.
+Sollte Ihnen HTML als Ausgabeformat nicht reichen, so kann Asciidoctor noch https://docbook.org/[docBook]
+erzeugen, und über ein Plugin auch PDF.
 Wie sie weitere Ausgabeformate erzeugen können, zeigen wir Ihnen dann im zweiten Teil.
 
-IMPORTANT: fehlt noch
-
-// wir sollten noch ein paar (kurze) Worte zum erzeugen von Ausgabeformaten
-// schreiben - wie das zB mit gradle oder per Kommandozeile geht,
-// und dass man diesen "Doku-Build" daher auch in den "Source-Build"
-// integrieren kann. Über Testen von Doku können wir ja in Folge 2 schreiben,
-// oder das auf das Booklet und die Website verschieben.
-
-// passt das so?
 
 .Dokumentation mit (UML-) Modellierungstools?
 ****
@@ -692,10 +682,8 @@ ungemein hoch.
 
 Einige UML-Tools besitzen jedoch leistungsfähige Schnittstellen zur Automatisierung,
 so dass sie mit Docs-as-Code Ansätzen gut zusammen arbeiten können.
-Lesen Sie dazu mehr im zweiten Teil dieses Artikels
+Lesen Sie dazu mehr im zweiten Teil dieses Artikels.
 
-// @RDM -> einen Verweis auf Dein EAP-Extraktions-Skript??
-// @GS -> zweiter Teil
 ****
 
 == Fazit
@@ -714,17 +702,8 @@ Durch den Ansatz stellen Sie weiterhin sicher, daß jeder weiss, wo die Dokument
 beim Code - da wo wie hingehört.
 
 Mit dem in diesem Artikel beschriebenen Ansatz sind Sie schon voll gerüstet für Docs-as-Code.
-In der zweiten Folge dieses Artikels zeigen wir Ihnen, wie noch einen Schritt weiter gehen
-und mit Hilfe der frei verfügbaren Werkzeugkette docToolchain,
-Office-Dokumente integrieren, Word(TM) und Confluence(TM) Formate generieren und noch
-andere spannende Dinge erledigen können. Eben das, was Sie auch mit Code machen würden: extrahieren, generieren, transformieren, testen etc.
+In der zweiten Folge dieses Artikels zeigen wir Ihnen, wie noch einen Schritt weiter gehen und mit Hilfe der frei verfügbaren Werkzeugkette docToolchain, Office-Dokumente integrieren, Word(TM) und Confluence(TM) Formate generieren und noch andere spannende Dinge erledigen können. Eben das, was Sie auch mit Code machen würden: extrahieren, generieren, transformieren, testen etc.
 
-Noch mehr Informationen finden Sie in der Zwischenzeit auch auf https://docs-as-co.de[Docs-as-Co.de],
-das fertige Beispiel dieser Artikelserie auf https://hsc.aim42.org/[hsc.aim42.org]
-und das arc42Template zum Durchstarten mit Ihrer eigenen Dokumentation können Sie auf https://arc42.de/[arc42.de] herunterladen.
+Noch mehr Informationen finden Sie in der Zwischenzeit auch auf https://docs-as-co.de[Docs-as-Co.de], das fertige Beispiel dieser Artikelserie auf https://hsc.aim42.org/[hsc.aim42.org] und das arc42Template zum Durchstarten mit Ihrer eigenen Dokumentation können Sie auf https://arc42.de/[arc42.de] herunterladen.
 
 In diesem Sinne viel Erfolg mit Docs-as-Code.
-
-
-
-
