@@ -61,7 +61,7 @@ und/oder Medienbrüche aufgetreten sind. Sie können Dokumente beliebig aufteile
 in den Build- und Testprozess ihrer Software integrieren.
 
 Sollten Sie in Ihrem Team bereits mit https://arc42.org[arc42] arbeiten,
-so werden Sie sich mit dem Docs-As-Code Ansatz besonders wohl fühlen.
+so werden Sie sich mit dem Docs-as-Code Ansatz besonders wohl fühlen.
 
 Andere Beteiligte (_Stakeholder_) dürfen ihre favorisierten Tools wie Word,
 Powerpoint, Excel oder auch Enterprise-Architect(TM) weiter verwenden,
@@ -319,7 +319,7 @@ ist wie gehabt.
 |===
 
 AsciiDoctor unterstützt auch Querverweise innerhalb des Dokuments.
-Mit doppelten eckigen Klammern `\[[ein-anker]]` setzen Sie Anker im Dokument, auf die Sie mit spitzen Klammern `\<<ein-anker>>` verweisen.
+Mit doppelten eckigen Klammern `\[[ein-anker]]` setzen Sie Anker im Dokument, auf den Sie mit spitzen Klammern `\<<ein-anker>>` verweisen.
 
 Wie Asciidoctor die Referenz benennt steuern Sie über das Attribut `:xrefstyle:`.
 
@@ -512,9 +512,9 @@ public class Stakeholder {
 |===
 
 Beachten Sie bei der Verwendung der sogenannten Callouts `// <1>`,
-daß die Kommentarzeichen im fertigen Dokument verschwinden
-und somit die Callouts beim Kopieren des Textes in eigenen Code manuell entfernt werden müssen.
-Setzen Sie diese in Beispielen eher sparsam ein.
+daß Sie das Attribut `:icons: font` gesetzt haben. Dadurch werden die Callouts
+so dargestellt, dass sie beim Kopieren des Textes nicht mitkopiert werden und
+somit nicht stören.
 
 === Textkästen (Sidebars)
 
@@ -672,15 +672,6 @@ Sollte Ihnen HTML als Ausgabeformat nicht reichen, so untestüzt Asciidoctor dir
 und über ein Plugin PDF.
 Wie sie weitere Ausgabeformate erzeugen können, zeigen wir Ihnen dann im zweiten Teil.
 
-IMPORTANT: fehlt noch
-
-// wir sollten noch ein paar (kurze) Worte zum erzeugen von Ausgabeformaten
-// schreiben - wie das zB mit gradle oder per Kommandozeile geht,
-// und dass man diesen "Doku-Build" daher auch in den "Source-Build"
-// integrieren kann. Über Testen von Doku können wir ja in Folge 2 schreiben,
-// oder das auf das Booklet und die Website verschieben.
-
-// passt das so?
 
 .Dokumentation mit (UML-) Modellierungstools?
 ****
