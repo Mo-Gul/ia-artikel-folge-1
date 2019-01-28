@@ -88,7 +88,6 @@ Sie erfahren, wie Sie die verschiedenen Arten von Dokumentation (etwa Architektu
 
 Sämtlichen Quellcode und Beispiele aller drei Teile finden Sie online
 in einem öffentlichen (git-) Repository.
-//TODO: repository verlinken
 
 Um Ihnen das manchmal ungeliebte Thema _Dokumentation_ etwas schmackhaft zu machen, möchten wir Ihnen einen
 Ausblick auf das mögliche Endergebnis geben: Eine Website

@@ -6,5 +6,6 @@
 :figure-caption: Abbildung
 :table-caption: Tabelle
 :example-caption: Beispiel
+:listing-caption: Listing
 :xrefstyle: short
 :sectanchors:
