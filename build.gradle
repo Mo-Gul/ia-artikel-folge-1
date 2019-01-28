@@ -12,6 +12,7 @@ asciidoctor {
    sourceDir = file("src/docs/")
    sources {
       include "Part-1-Intro.adoc"
+      include "hello.adoc"
    }
    requires = ['asciidoctor-diagram']
 }
