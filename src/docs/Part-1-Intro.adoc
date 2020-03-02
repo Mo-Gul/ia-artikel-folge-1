@@ -2,15 +2,15 @@ include::config.adoc[]
 
 == Docs-As-Code - Die Grundlagen
 
-=== Schlechte Dokumentation  kostet Geld
+=== Schlechte Dokumentation kostet Geld
 
-Eine grossangelegte Umfragefootnote:[https://opensourcesurvey.org/2017/]
+Eine großangelegte Umfragefootnote:[https://opensourcesurvey.org/2017/]
 zu "Open Source" zeigt, dass unvollständige oder verwirrende Dokumentation
 zu den Hauptproblemen freier Software zählt. Das gilt neben Anwendungungsdokumentation
 insbesondere auch für technische Dokumentation, etwa von Softwarearchitektur.
 
 Diese Aussage können wir sicherlich
-verallgemeinern -  schlechte Dokumentation von Software erschwert
+verallgemeinern - schlechte Dokumentation von Software erschwert
 Änderung, Support und letztlich auch Nutzung.
 
 Wir möchten hier auf _technische Dokumentation_ von Software abzielen, also
@@ -38,7 +38,7 @@ Dann verschwindet für Entwicklungsteams das erste der oben genannten Probleme (
   wird auch gleich besser.
 
 Wir zeigen Ihnen genau diesen Ansatz: Integrieren Sie das bisher ungeliebten
-Thema _Dokumentation_ mit Hilfe robuster Open-Source Werkzeuge einfach und effektiv
+Thema _Dokumentation_ mit Hilfe robuster Open-Source-Werkzeuge einfach und effektiv
 in Ihre Softwareentwicklung, mit Hilfe Ihres favorisierten Texteditors.
 _Mergen_ und _branchen_ Sie Dokumentation genau wie Quellcode.
 // forken und reviewen?
@@ -61,12 +61,12 @@ und/oder Medienbrüche aufgetreten sind. Sie können Dokumente beliebig aufteile
 in den Build- und Testprozess ihrer Software integrieren.
 
 Sollten Sie in Ihrem Team bereits mit https://arc42.org[arc42] arbeiten,
-so werden Sie sich mit dem Docs-as-Code Ansatz besonders wohl fühlen.
+so werden Sie sich mit dem Docs-as-Code-Ansatz besonders wohl fühlen.
 
 Andere Beteiligte (_Stakeholder_) dürfen ihre favorisierten Tools wie Word,
-Powerpoint, Excel oder auch Enterprise-Architect(TM) weiter verwenden,
+PowerPoint, Excel oder auch Enterprise-Architect(TM) weiter verwenden,
 denn Docs-as-Code kann automatisiert eine Vielzahl anderer Dokumenttypen integrieren
-(darauf gehen wir im zweiten Teil dieses Artikels detalliert ein).
+(darauf gehen wir im zweiten Teil dieses Artikels detailliert ein).
 
 Falls das für Sie attraktiv klingt - herzlich willkommen. Wir haben diese Ansätze
 bereits mehrfach in der Praxis erfolgreich einsetzen dürfen - und einige unserer
@@ -80,14 +80,14 @@ unsere favorisierte Grundlage für technische Dokumentation. Sie erfahren allerh
 und Quellcode.
 2. In der zweiten Folge lernen Sie
 https://doctoolchain.github.io/docToolchain/[docToolchain] kennen, die
-OpenSource Lösung zur Unterstützung des Docs-As-Code Ansatzes.
- Sie lernen die Integration von Office-Dokumenten, Confluence(TM) und Enterprise-Architect(TM)  in ihre Dokumentation kennen.
+OpenSource-Lösung zur Unterstützung des Docs-As-Code-Ansatzes.
+ Sie lernen die Integration von Office-Dokumenten, Confluence(TM) und Enterprise-Architect(TM) in ihre Dokumentation kennen.
 3. In der dritten Folge bringen wir _alles unter einem Dach_ unter:
 Sie erfahren, wie Sie die verschiedenen Arten von Dokumentation (etwa Architektur- und Entwicklungsdokumentation sowie User-Manuals, Tutorials
- etc) im Rahmen einer integrativen Website zusammenführen können.
+ etc.) im Rahmen einer integrativen Website zusammenführen können.
 
 Sämtlichen Quellcode und Beispiele aller drei Teile finden Sie online
-in einem öffentlichen (git-) Repository.
+in einem öffentlichen (git-)Repository.
 
 Um Ihnen das manchmal ungeliebte Thema _Dokumentation_ etwas schmackhaft zu machen, möchten wir Ihnen einen
 Ausblick auf das mögliche Endergebnis geben: Eine Website
@@ -116,7 +116,7 @@ sind im https://github.com/aim42/htmlSanityCheck[Github-Repository] öffentlich.
 == Bestandteile technischer Dokumentation
 
 Für technische Dokumentation benötigen Sie _die üblichen Verdächtigen_,
-nämlich Überschriften, Fliesstext mit Auszeichnungen wie fett und kursiv
+nämlich Überschriften, Fließtext mit Auszeichnungen wie fett und kursiv
 sowie Tabellen, Diagramme und Querverweise. Uns helfen oft Codebeispiele
 (am besten inkludiert aus dem Original-Code-Repository), und am besten
 soll unsere Dokumentation modular aufgebaut und flexibel kombiniert werden können.
@@ -125,29 +125,27 @@ Lassen Sie uns Schritt für Schritt starten:
 
 === Dokumentation als "plain text"
 
-Der Schlüssel zum Docs-as-Code Ansatz ist die Verwendung eines "plain text" Formats
+Der Schlüssel zum Docs-as-Code-Ansatz ist die Verwendung eines "plain text"-Formats
 anstelle der Binärformate typischer Textverarbeitungen oder Office-Anwendungen.
 Nur so können Sie Ihre Dokumentation tatsächlich wie Code behandeln und verwalten.
 
-Nutzen Sie das das leichtgewichtige Markup-Format
-Asciidoc footnote:[https://de.wikipedia.org/wiki/AsciiDoc] als Grundlage,
+Nutzen Sie das leichtgewichtige Markup-Format
+AsciiDocfootnote:[https://de.wikipedia.org/wiki/AsciiDoc] als Grundlage,
 seit vielen Jahren bewährt. Im Gegensatz zum ebenfalls weit verbreiteten
 https://daringfireball.net/projects/markdown/[Markdown] handelt sich bei
 AsciiDoc um einen wirklichen Standard,
-ohne Fragmentierung durch unterschiedliche Dialekte
-footnote:[Markdown wurde von John Gruber ursprünglich als minimalistisches Format definiert,
+ohne Fragmentierung durch unterschiedliche Dialekte.footnote:[Markdown wurde von John Gruber ursprünglich als minimalistisches Format definiert,
 Erweiterungen für Tabellen, Modularisierung, Styling etc. haben unterschiedliche
 Dialekte auf unterschiedliche Art realisiert. Texte in solchen Dialekten sind
-in der Regel nicht 1:1 kompatibel mit anderen Dialekten.].
-AsciiDoc ist sowohl einfach als auch funktional mächtig
-footnote:[Der Ausdruck der detaillierten AsciiDoc Benutzerdokumentation würde 274 Druckseiten füllen.],
+in der Regel nicht 1:1 kompatibel mit anderen Dialekten.]
+AsciiDoc ist sowohl einfach als auch funktional mächtig,footnote:[Der Ausdruck der detaillierten AsciiDoc-Benutzerdokumentation würde 274 Druckseiten füllen.]
 Sie können damit alle Arten von Dokumentation erstellen,
 bei Bedarf sogar Bücher damit schreiben.
 
 .Asciidoctor-Logo
 image:asciidoc-logo.svg[]
 
-Für AsciiDoc gibt es einen (Open-Source, d.h. frei verfügbaren) Konverter
+Für AsciiDoc gibt es einen (Open-Source-, d.h. frei verfügbaren) Konverter
 namens _Asciidoctor_ footnote:[https://asciidoctor.org/], der AsciiDoc in verschiedene
 Zielformate (etwa Html oder DocBook) konvertieren kann und auf verschiedenen Plattformen läuft.
 
@@ -171,7 +169,7 @@ Aber jetzt wird es Zeit für konkrete Details. Sie werden sehen, dass
 schreiben mit AsciiDoc wirklich einfach geht:
 
 ****
-Falls Sie unsere Beispiele direkt selbt nachvollziehen möchten, finden Sie den
+Falls Sie unsere Beispiele direkt selbst nachvollziehen möchten, finden Sie den
 Quellcode in unserem öffentlichen
 https://github.com/doctoolchain/ia-artikel[Github-Repository].
 
@@ -202,7 +200,7 @@ so dass ein normaler Text mit `==` als erste Überschriftenebene beginnt.
 === Absätze
 
 AsciiDoc ignoriert einfache Zeilenumbrüche und erkennt erst nach einer Leerzeile
-einen Absatz. Dieser Mechanismus hilft beim strukturieren von Texten.
+einen Absatz. Dieser Mechanismus hilft beim Strukturieren von Texten.
 Möchten Sie dennoch gezielt einen Zeilenumbruch setzen,
 so beenden Sie die Zeile mit einem Leerzeichen und `+`
 
@@ -317,7 +315,7 @@ ist wie gehabt.
 
 |===
 
-AsciiDoctor unterstützt auch Querverweise innerhalb des Dokuments.
+Asciidoctor unterstützt auch Querverweise innerhalb des Dokuments.
 Mit doppelten eckigen Klammern `\[[ein-anker]]` setzen Sie Anker im Dokument, auf den Sie mit spitzen Klammern `\<<ein-anker>>` verweisen.
 
 Wie Asciidoctor die Referenz benennt steuern Sie über das Attribut `:xrefstyle:`.
@@ -390,8 +388,8 @@ Binden Sie nur die Bilder in Ihre Dokumentation ein, so geht automatisch der eng
 
 Für einfache UML-Diagramme schlagen wir Ihnen eine elegante Lösung namens http://plantuml.com[PlantUML] vor:
 Damit beschreiben Sie Ihr Diagramm textuell und überlassen es Asciidoctor,
-das Diagramm in ein Bild zu wandeln. Unter der Haube nutzt AsciiDoctor dafür
-den Open Source Konverter PlantUML, der die textuelle Syntax in Grafikformate
+das Diagramm in ein Bild zu wandeln. Unter der Haube nutzt Asciidoctor dafür
+den Open-Source-Konverter PlantUML, der die textuelle Syntax in Grafikformate
 wie svg oder png verwandelt (wir empfehlen aus Erfahrung png).
 
 [[plantuml]]
@@ -429,7 +427,7 @@ In Ihrer technischen Dokumentation werden Sie an einigen Stellen
 Quellcode oder zumindest Code-Fragmente einfügen und erklären wollen.
 
 AsciiDoc bietet dafür sehr leistungsfähige Möglichkeiten. Beginnen wir
-mit der reinen Darstellung von Quellcode: Syntax-Highlighing, Zeilennummern
+mit der reinen Darstellung von Quellcode: Syntax-Highlighting, Zeilennummern
 und Markierungen, damit können Sie schon eine ganze Menge _anstellen_:
 
 [options="noheader",cols="l,a"]
@@ -511,7 +509,7 @@ public class Stakeholder {
 |===
 
 Beachten Sie bei der Verwendung der sogenannten Callouts `// <1>`,
-daß Sie das Attribut `:icons: font` gesetzt haben. Dadurch werden die Callouts
+dass Sie das Attribut `:icons: font` gesetzt haben. Dadurch werden die Callouts
 so dargestellt, dass sie beim Kopieren des Textes nicht mitkopiert werden und
 somit nicht stören.
 
@@ -519,7 +517,7 @@ somit nicht stören.
 
 Manchmal möchten Sie Inhalte besonders hervorheben.
 Gerade bei technischer Dokumentation bietet es sich an,
-den einen oder anderen Sachverhalt ausserhalb des Fliesstextes zu erklären.
+den einen oder anderen Sachverhalt außerhalb des Fließtextes zu erklären.
 Verwenden Sie in solchen Fällen eine Sidebar (Textkasten).
 
 [options="noheader",cols="l,a"]
@@ -538,13 +536,13 @@ hier steht besonders hervorgehobener Text
 
 === Tabellen
 
-Tabellen leiten Sie mit `|===`. Sie können in eckigen Klammern Optionen
+Tabellen leiten Sie mit `|===` ein. Sie können in eckigen Klammern Optionen
 zur Darstellung der Tabelle angeben. Spalten trennen Sie mit `|`.
 
 ----
 [options="header"]
 |===
-|Header-1 | Header-2  <1>
+|Header-1 | Header-2  <1>
 |c1r1 |c2r1
 |c1r2 |c2r2
 |===
@@ -554,7 +552,7 @@ zur Darstellung der Tabelle angeben. Spalten trennen Sie mit `|`.
 
 [options="header"]
 |===
-|Header-1 | Header-2 
+|Header-1 | Header-2
 |c1r1 |c2r1
 | c1r2 | c2r2
 |===
@@ -594,9 +592,9 @@ Diese Tabelle wird mit dem folgenden AsciiDoc erzeugt:
 
 Beachten Sie, dass Sie durch die Definition der Spaltenzahl in den Optionen,
 die Zellen einfach untereinander schreiben können.
-Das sorgt für eine bessere Übersicht und leitere Bearbeitung der Tabelle.
+Das sorgt für eine bessere Übersicht und leichtere Bearbeitung der Tabelle.
 
-Der https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#tables[AsciiDoctor Writers' Guide]
+Der https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#tables[Asciidoctor Writers' Guide]
 hält noch eine Reihe weiterer Möglichkeiten
 bereit - Spalten- und Zeilenformatierung, links- und rechtsbündige Spalten
 und so weiter.
@@ -671,7 +669,7 @@ erzeugen, und über ein Plugin auch PDF.
 Wie sie weitere Ausgabeformate erzeugen können, zeigen wir Ihnen dann im zweiten Teil.
 
 
-.Dokumentation mit (UML-) Modellierungstools?
+.Dokumentation mit (UML-)Modellierungstools?
 ****
 Werkzeuge wie Enterprise-Architect(TM), VisualParadigm(TM) und andere
 unterstützen bei Erstellung von UML-Diagrammen. Für textuelle oder tabellarische
@@ -680,7 +678,7 @@ Einstiegshürde für Entwicklungsteams aufgrund der hohen Komplexität dieser To
 ungemein hoch.
 
 Einige UML-Tools besitzen jedoch leistungsfähige Schnittstellen zur Automatisierung,
-so dass sie mit Docs-as-Code Ansätzen gut zusammen arbeiten können.
+so dass sie mit Docs-as-Code-Ansätzen gut zusammen arbeiten können.
 Lesen Sie dazu mehr im zweiten Teil dieses Artikels.
 
 ****
@@ -697,12 +695,12 @@ Entwicklungsteams damit beträchtlich - damit steigt die Chance, dass langfristi
 relevante Informationen auch wirklich dokumentiert werden, und nicht in den Köpfen
 von Entwicklungsteams dem Vergessen anheim fallen.
 
-Durch den Ansatz stellen Sie weiterhin sicher, daß jeder weiss, wo die Dokumentation liegt:
+Durch den Ansatz stellen Sie weiterhin sicher, dass jeder weiß, wo die Dokumentation liegt:
 beim Code - da wo wie hingehört.
 
 Mit dem in diesem Artikel beschriebenen Ansatz sind Sie schon voll gerüstet für Docs-as-Code.
-In der zweiten Folge dieses Artikels zeigen wir Ihnen, wie noch einen Schritt weiter gehen und mit Hilfe der frei verfügbaren Werkzeugkette docToolchain, Office-Dokumente integrieren, Word(TM) und Confluence(TM) Formate generieren und noch andere spannende Dinge erledigen können. Eben das, was Sie auch mit Code machen würden: extrahieren, generieren, transformieren, testen etc.
+In der zweiten Folge dieses Artikels zeigen wir Ihnen, wie noch einen Schritt weiter gehen und mit Hilfe der frei verfügbaren Werkzeugkette docToolchain, Office-Dokumente integrieren, Word(TM)- und Confluence(TM)-Formate generieren und noch andere spannende Dinge erledigen können. Eben das, was Sie auch mit Code machen würden: extrahieren, generieren, transformieren, testen etc.
 
-Noch mehr Informationen finden Sie in der Zwischenzeit auch auf https://docs-as-co.de[Docs-as-Co.de], das fertige Beispiel dieser Artikelserie auf https://hsc.aim42.org/[hsc.aim42.org] und das arc42Template zum Durchstarten mit Ihrer eigenen Dokumentation können Sie auf https://arc42.de/[arc42.de] herunterladen.
+Noch mehr Informationen finden Sie in der Zwischenzeit auch auf https://docs-as-co.de[Docs-as-Co.de], das fertige Beispiel dieser Artikelserie auf https://hsc.aim42.org/[hsc.aim42.org] und das arc42-Template zum Durchstarten mit Ihrer eigenen Dokumentation können Sie auf https://arc42.de/[arc42.de] herunterladen.
 
 In diesem Sinne viel Erfolg mit Docs-as-Code.
